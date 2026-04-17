@@ -1,11 +1,13 @@
 /* theme */
 :root {
+	--bitsy-tint-h: 240;
 	--bitsy-color-main-1: #ffffff;
-	--bitsy-color-main-2: #6767b2;
-	--bitsy-color-accent-1: #e8e8ff;
-	--bitsy-color-accent-2: #ccccff;
+	--bitsy-color-main-2: hsl(var(--bitsy-tint-h), 33%, 55%);
+	--bitsy-color-accent-1: hsl(var(--bitsy-tint-h), 100%, 95%);
+	--bitsy-color-accent-2: hsl(var(--bitsy-tint-h), 100%, 90%);
 	--bitsy-color-neutral-1: #eee;
 	--bitsy-color-neutral-2: #888;
+	--bitsy-color-input-text: black;
 	--bitsy-space-xxs: 0.05rem;
 	--bitsy-space-xs: 0.125rem;
 	--bitsy-space-s: 0.25rem;
@@ -17,6 +19,16 @@
 	--bitsy-size-s: 16rem;
 	--bitsy-size-m: 24rem;
 	--bitsy-size-l: 32rem;
+}
+
+html.dark-mode {
+	--bitsy-color-main-1: #1e1e30;
+	--bitsy-color-main-2: hsl(var(--bitsy-tint-h), 45%, 72%);
+	--bitsy-color-accent-1: hsl(var(--bitsy-tint-h), 24%, 22%);
+	--bitsy-color-accent-2: hsl(var(--bitsy-tint-h), 20%, 10%);
+	--bitsy-color-neutral-1: #252535;
+	--bitsy-color-neutral-2: #666688;
+	--bitsy-color-input-text: #e8e8ff;
 }
 
 /* remove browser default styles */
@@ -130,7 +142,7 @@ input[type=text] {
 }
 
 input[type=text]:not([readonly]) {
-	color: black;
+	color: var(--bitsy-color-input-text);
 	background: var(--bitsy-color-neutral-1);
 	border-color: var(--bitsy-color-neutral-1);
 }

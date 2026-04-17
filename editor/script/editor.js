@@ -903,6 +903,8 @@ function isPortraitOrientation() {
 }
 
 function start() {
+	initTints();
+	initDarkMode();
 	initSystem();
 
 	events.Listen("game_data_change", function(event) {
@@ -1594,6 +1596,7 @@ function togglePlayMode(e) {
 
 function on_play_mode() {
 	isPlayMode = true;
+	applyTint(hexToHue(_playTintHex));
 	if (document.getElementById("roomPanel").style.display === "none") {
 		showPanel("roomPanel");
 	}
@@ -1610,6 +1613,7 @@ function on_play_mode() {
 
 function on_edit_mode() {
 	isPlayMode = false;
+	applyTint(hexToHue(_editTintHex));
 
 	document.getElementById("appRoot").classList.remove("bitsy-playmode");
 
@@ -3203,6 +3207,70 @@ function chooseExportSizeFull() {
 function chooseExportSizeFixed() {
 	isFixedSize = true;
 	document.getElementById("exportSizeFixedInputSpan").style.display = "inline-block";
+}
+
+// TINT
+var _editTintHex = "#6767b2";
+var _playTintHex = "#6767b2";
+
+function hexToHue(hex) {
+	var r = parseInt(hex.slice(1, 3), 16) / 255;
+	var g = parseInt(hex.slice(3, 5), 16) / 255;
+	var b = parseInt(hex.slice(5, 7), 16) / 255;
+	var max = Math.max(r, g, b), min = Math.min(r, g, b);
+	if (max === min) return 0;
+	var d = max - min, h;
+	if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+	else if (max === g) h = ((b - r) / d + 2) / 6;
+	else h = ((r - g) / d + 4) / 6;
+	return Math.round(h * 360);
+}
+
+function applyTint(hue) {
+	document.documentElement.style.setProperty("--bitsy-tint-h", hue);
+}
+
+function initTints() {
+	_editTintHex = localStorage.getItem("bitsy-edit-tint") || "#6767b2";
+	_playTintHex = localStorage.getItem("bitsy-play-tint") || "#6767b2";
+	var editInput = document.getElementById("editTintInput");
+	var playInput = document.getElementById("playTintInput");
+	if (editInput) editInput.value = _editTintHex;
+	if (playInput) playInput.value = _playTintHex;
+	applyTint(hexToHue(_editTintHex));
+}
+
+function onEditTintChange(e) {
+	_editTintHex = e.target.value;
+	localStorage.setItem("bitsy-edit-tint", _editTintHex);
+	if (!isPlayMode) applyTint(hexToHue(_editTintHex));
+}
+
+function onPlayTintChange(e) {
+	_playTintHex = e.target.value;
+	localStorage.setItem("bitsy-play-tint", _playTintHex);
+	if (isPlayMode) applyTint(hexToHue(_playTintHex));
+}
+
+// DARK MODE
+function updateDarkModeLabel(enabled) {
+	var label = document.getElementById("darkModeLabel");
+	if (label) label.textContent = enabled ? "light mode" : "dark mode";
+}
+
+function initDarkMode() {
+	var enabled = localStorage.getItem("bitsy-dark-mode") === "true";
+	document.documentElement.classList.toggle("dark-mode", enabled);
+	var check = document.getElementById("darkModeCheck");
+	if (check) check.checked = enabled;
+	updateDarkModeLabel(enabled);
+}
+
+function toggleDarkMode(e) {
+	var enabled = e.target.checked;
+	document.documentElement.classList.toggle("dark-mode", enabled);
+	localStorage.setItem("bitsy-dark-mode", enabled);
+	updateDarkModeLabel(enabled);
 }
 
 // LOCALIZATION

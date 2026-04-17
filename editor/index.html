@@ -175,6 +175,12 @@
 					<span class="localize data_tool_name">game data</span>
 				</label>
 
+				<input type="checkbox" value="themePanel" onclick="togglePanelAnimated(event);" id="themeCheck" autocomplete="off" />
+				<label title="show / hide theme window" for="themeCheck">
+					<span class="bitsy_icon icon_space_right">rainbow</span>
+					<span>theme</span>
+				</label>
+
 				<input type="checkbox" value="settingsPanel" onclick="togglePanelAnimated(event);" id="settingsCheck" autocomplete="off" />
 				<label title="show / hide settings window" for="settingsCheck">
 					<span class="bitsy_icon icon_space_right">settings</span>
@@ -1081,6 +1087,44 @@
 					</div>
 				</div>
 
+				<div id="themePanel" class="bitsy-card bitsy-card-s bitsy-workbench-item" style="display:none;">
+					<div class="bitsy-card-titlebar">
+						<span class="bitsy_icon">rainbow</span>
+						<span class="bitsy-card-title" title="theme window" onmousedown="grabCard(event);">
+							theme
+						</span>
+						<button title="minimize theme window" onclick="hidePanel('themePanel');">
+							<span class="bitsy_icon">close</span>
+						</button>
+					</div>
+					<div class="bitsy-card-main">
+						<div class="bitsy-menu">
+							<div class="bitsy-menu-group">
+								<span>editor theme</span>
+							</div>
+							<div class="controlBox">
+								<input type="checkbox" id="darkModeCheck" onclick="toggleDarkMode(event);" autocomplete="off" />
+								<label title="toggle dark mode" for="darkModeCheck" class="bitsy-menu-label">
+									<span class="bitsy_icon icon_space_right">settings</span>
+									<span id="darkModeLabel">dark mode</span>
+								</label>
+							</div>
+							<div class="controlBox">
+								<div style="display:flex; gap:var(--bitsy-space-m); align-items:center;">
+									<label style="display:flex; flex-direction:column; align-items:center; gap:var(--bitsy-space-s); font-size:80%;">
+										editing
+										<input type="color" id="editTintInput" value="#6767b2" oninput="onEditTintChange(event);" title="tint color while editing" />
+									</label>
+									<label style="display:flex; flex-direction:column; align-items:center; gap:var(--bitsy-space-s); font-size:80%;">
+										playing
+										<input type="color" id="playTintInput" value="#6767b2" oninput="onPlayTintChange(event);" title="tint color while playing" />
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<div id="settingsPanel" class="bitsy-card bitsy-card-s bitsy-workbench-item" style="display:none;">
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">settings</span>
@@ -1106,7 +1150,6 @@
 								<br/>
 								<span class="localize language_translator_credit" style="font-size: 80%;">English text by Adam Le Doux</span>
 							</div>
-							
 							<div class="bitsy-menu-group">
 								<span class="localize game_settings">game settings</span>
 							</div>
