@@ -789,8 +789,11 @@
                                     <form id="colorPaletteForm">
                                     <span id="colorPaletteFormInner"></span>
                                     <div id="colorPaletteAdd" style="display:inline-block;">
-                                        <button title="add color" onclick="addColor(); return false;">
+                                        <button id="addColorButton" title="add color" onclick="addColor(); return false;">
                                             <span class="bitsy_icon">add</span>
+                                        </button>
+                                        <button id="removeColorButton" title="delete color" style="display:none;" onclick="removeColor(); return false;">
+                                            <span class="bitsy_icon">delete</span>
                                         </button>
                                     </div>
                                 </form>

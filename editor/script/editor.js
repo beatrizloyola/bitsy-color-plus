@@ -1721,6 +1721,10 @@ function addColor() {
     paletteTool.AddColor();
 }
 
+function removeColor() {
+    paletteTool.RemoveColor();
+}
+
 function roomPaletteChange(event) {
 	var palId = event.target.value;
 	room[state.room].pal = palId;

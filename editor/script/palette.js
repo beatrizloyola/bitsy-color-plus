@@ -6,9 +6,24 @@ TODO:
 function PaletteTool(colorPicker,colorCallback,nameFieldId) { //,colorCallback
 	var self = this;
 
+	var MAX_PALETTE_SIZE = 64;
+
 	var colorPickerIndex = 0;
 
 	var curPaletteId = sortedPaletteIdList()[0];
+
+	function updateAddColorButton() {
+		var btn = document.getElementById("addColorButton");
+		if (!btn) return;
+		btn.style.display = getPal(GetSelectedId()).length >= MAX_PALETTE_SIZE ? "none" : "";
+	}
+
+	function updateRemoveColorButton() {
+		var btn = document.getElementById("removeColorButton");
+		if (!btn) return;
+		var colors = getPal(GetSelectedId());
+		btn.style.display = (colorPickerIndex >= 3 && colors.length > 3) ? "" : "none";
+	}
 
 	function UpdatePaletteUI() {
 		// update name field
@@ -23,6 +38,8 @@ function PaletteTool(colorPicker,colorCallback,nameFieldId) { //,colorCallback
 		}
 
 		updateColorPickerUI();
+		updateAddColorButton();
+		updateRemoveColorButton();
 	}
 
 	events.Listen("game_data_change", function(event) {
@@ -131,6 +148,8 @@ function PaletteTool(colorPicker,colorCallback,nameFieldId) { //,colorCallback
                 children[1].style.display = 'inline';
             }
         }
+
+		updateRemoveColorButton();
 	}
 	this.changeColorPickerIndex = changeColorPickerIndex;
 
@@ -298,15 +317,57 @@ function PaletteTool(colorPicker,colorCallback,nameFieldId) { //,colorCallback
 	}
 
     this.AddColor = function () {
-
         var id = curPaletteId;
         var colors = palette[id].colors;
+        if (colors.length >= MAX_PALETTE_SIZE) return;
         colors.push(hslToRgb(Math.random(), 1.0, Math.random()));
-        addButtons(colors.length - 1);
+        var newIndex = colors.length - 1;
+        addButtons(newIndex);
+        colorPickerIndex = newIndex;
+        document.getElementById("colorRadio_" + newIndex).checked = true;
         UpdatePaletteUI();
 
         events.Raise("palette_change");
     }
+
+	this.RemoveColor = function() {
+		var index = colorPickerIndex;
+		var colors = getPal(curPaletteId);
+		if (index < 3 || colors.length <= 3) return;
+
+		colors.splice(index, 1);
+
+		// remap pixel data in all drawings: deleted index → 0, higher indices shift down
+		var allDrawings = [];
+		for (var tileId in tile) allDrawings.push(tile[tileId]);
+		for (var spriteId in sprite) allDrawings.push(sprite[spriteId]);
+		for (var itemId in item) allDrawings.push(item[itemId]);
+
+		for (var d = 0; d < allDrawings.length; d++) {
+			var drw = allDrawings[d];
+			var source = renderer.GetDrawingSource(drw.drw);
+			if (!source) continue;
+			for (var f = 0; f < source.length; f++) {
+				var frame = source[f];
+				for (var y = 0; y < frame.length; y++) {
+					for (var x = 0; x < frame[y].length; x++) {
+						if (frame[y][x] === index) {
+							frame[y][x] = 0;
+						} else if (frame[y][x] > index) {
+							frame[y][x]--;
+						}
+					}
+				}
+			}
+			renderer.SetDrawingSource(drw.drw, source);
+		}
+
+		colorPickerIndex = Math.min(colorPickerIndex, colors.length - 1);
+		UpdatePaletteUI();
+
+		events.Raise("palette_change");
+		events.Raise("paint_edit");
+	}
 
 	function GetSelectedId() {
 		if (sortedPaletteIdList().length <= 0) {
