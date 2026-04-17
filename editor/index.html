@@ -589,14 +589,17 @@
 						<canvas id="paint"></canvas>
 
 						<div id="paintTools" class="buttonGroup">
-							<button id="paintTool_brush" title="brush (B)" class="color0 paint-tool-active" onclick="paintTool.setDrawTool('brush');">
+							<button id="paintTool_brush" title="brush" class="color0 paint-tool-active" onclick="paintTool.setDrawTool('brush');">
 								<span class="bitsy_icon">paint</span>
 							</button>
-							<button id="paintTool_eraser" title="eraser (E)" class="color0" onclick="paintTool.setDrawTool('eraser');">
+							<button id="paintTool_eraser" title="eraser" class="color0" onclick="paintTool.setDrawTool('eraser');">
 								<span class="bitsy_icon">backspace</span>
 							</button>
-							<button id="paintTool_fill" title="fill (F)" class="color0" onclick="paintTool.setDrawTool('fill');">
+							<button id="paintTool_fill" title="fill" class="color0" onclick="paintTool.setDrawTool('fill');">
 								<span class="bitsy_icon">colors</span>
+							</button>
+							<button id="paintTool_picker" title="color picker" class="color0" onclick="paintTool.setDrawTool('picker');">
+								<span class="bitsy_icon">eyedropper</span>
 							</button>
 							<button id="paintTool_undo" title="undo (Ctrl+Z)" class="color0" onclick="paintTool.undo();">
 								<span class="bitsy_icon">undo</span>

@@ -136,7 +136,7 @@ function PaintTool(canvas, menuElement) {
 	}
 
 	function updateDrawToolButtons() {
-		["brush", "eraser", "fill"].forEach(function(tool) {
+		["brush", "eraser", "fill", "picker"].forEach(function(tool) {
 			var btn = document.getElementById("paintTool_" + tool);
 			if (btn) {
 				btn.classList.toggle("paint-tool-active", tool === currentDrawTool);
@@ -172,6 +172,21 @@ function PaintTool(canvas, menuElement) {
 		off = mobileOffsetCorrection(off, e, self.curTilesize);
 		var x = Math.floor(off.x);
 		var y = Math.floor(off.y);
+
+		if (currentDrawTool === "picker") {
+			var pickedIndex = curDrawingData()[y][x];
+			if (pickedIndex !== 0) {
+				var radio = document.getElementById("colorRadio_" + pickedIndex);
+				if (radio) {
+					radio.checked = true;
+					radio.click();
+				} else {
+					self.setPaintColor(pickedIndex);
+				}
+			}
+			self.setDrawTool("brush");
+			return;
+		}
 
 		saveHistory();
 
@@ -505,6 +520,7 @@ function PaintTool(canvas, menuElement) {
 
 	this.setDrawTool = function(toolName) {
 		currentDrawTool = toolName;
+		canvas.style.cursor = (toolName === "picker") ? "crosshair" : "";
 		updateDrawToolButtons();
 	};
 
