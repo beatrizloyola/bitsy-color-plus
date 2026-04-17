@@ -1,3 +1,13 @@
+#paintTools {
+	margin-top: var(--bitsy-space-s);
+	margin-bottom: var(--bitsy-space-s);
+}
+
+#paintTools .paint-tool-active {
+	background: var(--bitsy-color-main-2);
+	color: var(--bitsy-color-main-1);
+}
+
 #animationOuter {
 	margin-top: var(--bitsy-space-s);
 	margin-bottom: var(--bitsy-space-m);

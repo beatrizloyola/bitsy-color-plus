@@ -30,6 +30,11 @@ function PaintTool(canvas, menuElement) {
     var paintColorDummy = 1;
 	var curPaintBrush = 0;
 	var isPainting = false;
+
+	var currentDrawTool = "brush"; // "brush", "eraser", "fill"
+	var undoStack = [];
+	var redoStack = [];
+	var MAX_HISTORY = 50;
 	this.isCurDrawingAnimated = false; // TODO eventually this can be internal
 	this.curDrawingFrameIndex = 0; // TODO eventually this can be internal
 	this.drawPaintGrid = (getPanelSetting("paintPanel", "grid") != false);
@@ -66,34 +71,117 @@ function PaintTool(canvas, menuElement) {
         paintColorDummy = index;
     }
 
-	// TODO : 
+	function snapshotData() {
+		return curDrawingData().map(function(row) { return row.slice(); });
+	}
+
+	function saveHistory() {
+		undoStack.push(snapshotData());
+		if (undoStack.length > MAX_HISTORY) {
+			undoStack.shift();
+		}
+		redoStack = [];
+	}
+
+	function applySnapshot(snapshot) {
+		var data = curDrawingData();
+		for (var y = 0; y < snapshot.length; y++) {
+			for (var x = 0; x < snapshot[y].length; x++) {
+				data[y][x] = snapshot[y][x];
+			}
+		}
+	}
+
+	function commitStroke() {
+		if (roomTool) {
+			roomTool.select(roomTool.getSelected());
+		}
+		updateDrawingData();
+		refreshGameData();
+		self.updateCanvas();
+		if (self.isCurDrawingAnimated) {
+			renderAnimationPreview(drawing);
+		}
+		events.Raise("paint_edit");
+	}
+
+	function undo() {
+		if (undoStack.length === 0) return;
+		redoStack.push(snapshotData());
+		applySnapshot(undoStack.pop());
+		commitStroke();
+	}
+
+	function redo() {
+		if (redoStack.length === 0) return;
+		undoStack.push(snapshotData());
+		applySnapshot(redoStack.pop());
+		commitStroke();
+	}
+
+	function floodFill(startX, startY, fillColor) {
+		var data = curDrawingData();
+		var size = self.curTilesize;
+		var targetColor = data[startY][startX];
+		if (targetColor === fillColor) return;
+		var stack = [[startX, startY]];
+		while (stack.length > 0) {
+			var pos = stack.pop();
+			var x = pos[0], y = pos[1];
+			if (x < 0 || x >= size || y < 0 || y >= size) continue;
+			if (data[y][x] !== targetColor) continue;
+			data[y][x] = fillColor;
+			stack.push([x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]);
+		}
+	}
+
+	function updateDrawToolButtons() {
+		["brush", "eraser", "fill"].forEach(function(tool) {
+			var btn = document.getElementById("paintTool_" + tool);
+			if (btn) {
+				btn.classList.toggle("paint-tool-active", tool === currentDrawTool);
+			}
+		});
+	}
+
+	document.addEventListener("keydown", function(e) {
+		if (isPlayMode) return;
+		if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+		if (e.ctrlKey || e.metaKey) {
+			if (e.key === "z") {
+				e.preventDefault();
+				undo();
+			} else if (e.key === "y") {
+				e.preventDefault();
+				redo();
+			}
+		}
+	});
+
 	function onMouseDown(e) {
 		e.preventDefault();
-		
+
 		if (isPlayMode) {
-			return; //can't paint during play mode
+			return;
 		}
 
 		bitsyLog("PAINT TOOL!!!", "editor");
 		bitsyLog(e, "editor");
 
 		var off = getOffset(e);
-
-		off = mobileOffsetCorrection(off,e,(self.curTilesize));
-
+		off = mobileOffsetCorrection(off, e, self.curTilesize);
 		var x = Math.floor(off.x);
 		var y = Math.floor(off.y);
 
-		// non-responsive version
-		// var x = Math.floor(off.x / paint_scale);
-		// var y = Math.floor(off.y / paint_scale);
+		saveHistory();
 
-		if (curDrawingData()[y][x] == 0) {
-			curPaintBrush = paintColorDummy;
+		if (currentDrawTool === "fill") {
+			floodFill(x, y, paintColorDummy);
+			commitStroke();
+			return;
 		}
-		else {
-			curPaintBrush = 0;
-		}
+
+		curPaintBrush = (currentDrawTool === "eraser") ? 0 : paintColorDummy;
 		curDrawingData()[y][x] = curPaintBrush;
 		self.updateCanvas();
 		isPainting = true;
@@ -116,25 +204,7 @@ function PaintTool(canvas, menuElement) {
 		bitsyLog("?????", "editor");
 		if (isPainting) {
 			isPainting = false;
-
-			// force tile to re-render
-			// renderer.ClearCache();
-			// renderer.DeleteDrawing(drawing);
-			if (roomTool) {
-				// roomTool.renderer.ClearCache();
-				roomTool.select(roomTool.getSelected());
-			}
-
-			updateDrawingData();
-			refreshGameData();
-
-			self.updateCanvas();
-
-			if (self.isCurDrawingAnimated) {
-				renderAnimationPreview(drawing);
-			}
-
-			events.Raise("paint_edit");
+			commitStroke();
 		}
 	}
 
@@ -427,9 +497,20 @@ function PaintTool(canvas, menuElement) {
 
 	this.selectDrawing = function(drawingData) {
 		drawing = drawingData; // ok this global variable is weird imo
+		undoStack = [];
+		redoStack = [];
 		self.reloadDrawing();
 		self.updateCanvas();
 	}
+
+	this.setDrawTool = function(toolName) {
+		currentDrawTool = toolName;
+		updateDrawToolButtons();
+	};
+
+	this.getDrawTool = function() { return currentDrawTool; };
+	this.undo = undo;
+	this.redo = redo;
 
 	this.toggleWall = function(checked) {
 		if (drawing.type != TileType.Tile) {

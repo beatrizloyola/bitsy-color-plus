@@ -587,6 +587,24 @@
 
 						<canvas id="paint"></canvas>
 
+						<div id="paintTools" class="buttonGroup">
+							<button id="paintTool_brush" title="brush (B)" class="color0 paint-tool-active" onclick="paintTool.setDrawTool('brush');">
+								<span class="bitsy_icon">paint</span>
+							</button>
+							<button id="paintTool_eraser" title="eraser (E)" class="color0" onclick="paintTool.setDrawTool('eraser');">
+								<span class="bitsy_icon">backspace</span>
+							</button>
+							<button id="paintTool_fill" title="fill (F)" class="color0" onclick="paintTool.setDrawTool('fill');">
+								<span class="bitsy_icon">colors</span>
+							</button>
+							<button id="paintTool_undo" title="undo (Ctrl+Z)" class="color0" onclick="paintTool.undo();">
+								<span class="bitsy_icon">undo</span>
+							</button>
+							<button id="paintTool_redo" title="redo (Ctrl+Y)" class="color0" onclick="paintTool.redo();">
+								<span class="bitsy_icon">redo</span>
+							</button>
+						</div>
+
                         <div id="paintTransform">
                             <span class="buttonGroup" style="margin-bottom: 5px; margin-right: 3px;">
                                 <button title="nudge left" class="color0" onclick="nudgeDrawing(0);">
