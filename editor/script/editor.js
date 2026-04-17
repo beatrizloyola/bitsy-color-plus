@@ -380,12 +380,12 @@ function openDialogTool(dialogId, insertNextToId, showIfHidden) { // todo : rena
 	// clean up any existing editors -- is there a more "automagical" way to do this???
 	if (curDialogEditor) {
 		curDialogEditor.OnDestroy();
-		delete curDialogEditor;
+		curDialogEditor = null;
 	}
 
 	if (curPlaintextDialogEditor) {
 		curPlaintextDialogEditor.OnDestroy();
-		delete curPlaintextDialogEditor;
+		curPlaintextDialogEditor = null;
 	}
 	
 
@@ -581,7 +581,7 @@ function reloadDialogUI() {
 	// clean up previous widget
 	if (paintDialogWidget) {
 		paintDialogWidget.OnDestroy();
-		delete paintDialogWidget;
+		paintDialogWidget = null;
 	}
 
 	paintDialogWidget = dialogTool.CreateWidget(
@@ -1723,6 +1723,37 @@ function addColor() {
 
 function removeColor() {
     paletteTool.RemoveColor();
+}
+
+/* PIXEL ART IMPORT */
+function openImportModal() {
+	var type = 'tile';
+	if (drawing) {
+		if (drawing.type === TileType.Sprite || drawing.type === TileType.Avatar) type = 'sprite';
+		else if (drawing.type === TileType.Item) type = 'item';
+	}
+	var radio = document.getElementById('importType' + type.charAt(0).toUpperCase() + type.slice(1));
+	if (radio) radio.checked = true;
+	document.getElementById('importModal').style.display = 'flex';
+}
+
+function closeImportModal() {
+	document.getElementById('importModal').style.display = 'none';
+	document.getElementById('importFileInput').value = '';
+}
+
+function doPixelImport() {
+	var fileInput = document.getElementById('importFileInput');
+	if (!fileInput.files || !fileInput.files[0]) {
+		alert('Please select an image file.');
+		return;
+	}
+	var checkedRadio = document.querySelector('input[name="importType"]:checked');
+	if (!checkedRadio) return;
+	var file = fileInput.files[0];
+	var drawingType = checkedRadio.value;
+	closeImportModal();
+	pixelArtImporter.doImport(file, drawingType);
 }
 
 function roomPaletteChange(event) {

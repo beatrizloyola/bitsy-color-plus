@@ -62,6 +62,7 @@
 		<script src="script/exporter.js"></script>
 		<script src="script/dialog_editor.js"></script>
 		<script src="script/editor.js"></script>
+		<script src="script/importer.js"></script>
 		<script src="script/inventory.js"></script>
 
 		<!-- TOOLS -->
@@ -666,6 +667,10 @@
                                     <span class="bitsy_icon">item</span>
                                     <span class="localize inventory_tool_name">inventory</span>
                                 </button>
+                                <button title="import image as new drawing" class="bitsy-menu-label" onclick="openImportModal();">
+                                    <span class="bitsy_icon">upload</span>
+                                    <span>import</span>
+                                </button>
                                 <span id="drawingPaintCol" title="paint with this color" class="controlSpan">
                                     <span class="localize brush_color">brush color</span>
                                     <input type="text" id="paintColor" size="3" />
@@ -1227,6 +1232,50 @@
 			</div> <!-- Editor Content -->
 		</div> <!-- Editor Window -->
 
+		</div>
+
+		<!-- PIXEL ART IMPORT MODAL -->
+		<div id="importModal" class="import-modal-overlay" style="display:none;">
+			<div class="bitsy-card import-modal-card">
+				<div class="bitsy-card-titlebar">
+					<span class="bitsy_icon">upload</span>
+					<span class="bitsy-card-title">Import Pixel Art</span>
+				</div>
+				<div class="bitsy-card-main">
+					<div class="import-modal-section">
+						<input type="file" id="importFileInput" accept="image/*" />
+					</div>
+					<div class="import-modal-section">
+						<form id="importTypeRadio" class="bitsy-menu-group">
+							<input type="radio" name="importType" id="importTypeTile" value="tile" checked>
+							<label for="importTypeTile" class="left">
+								<span class="bitsy_icon icon_space_right">tile</span>
+								<span>tile</span>
+							</label>
+							<input type="radio" name="importType" id="importTypeSprite" value="sprite">
+							<label for="importTypeSprite" class="middle">
+								<span class="bitsy_icon icon_space_right">sprite</span>
+								<span>sprite</span>
+							</label>
+							<input type="radio" name="importType" id="importTypeItem" value="item">
+							<label for="importTypeItem" class="right">
+								<span class="bitsy_icon icon_space_right">item</span>
+								<span>item</span>
+							</label>
+						</form>
+					</div>
+					<div class="import-modal-actions">
+						<button class="color0" onclick="doPixelImport();">
+							<span class="bitsy_icon">checkmark</span>
+							import
+						</button>
+						<button class="color0" onclick="closeImportModal();">
+							<span class="bitsy_icon">cancel</span>
+							cancel
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 
 	</body>
