@@ -1,14 +1,33 @@
+![bitsyTuxedo Banner](https://i.ibb.co/S7GrkvV3/image.png)
+
+<h1 align='center'>
+Bitsy Tuxedo</br>🕹️🖌️</br></br>
+<h3 align='center'>(Work in progress)</h3>
+</h1>
+
+</br></br>
 # Bitsy
 Bitsy is a little editor for games, worlds, or stories.
 The goal is to make it easy to make games where you can walk around and talk to people and be somewhere!
 
-# Make a game with Bitsy Color
-You can use [the current Bitsy Color editor](https://aurysystem.itch.io/multicolorbisty) in your browser on itch.io! When you've finished your game, you can download it as an html file and share it. :)
-You can clone or download this fork to mess with whatever we add to it if youw want.
+</br></br>
+# About Bitsy Tuxedo
+Bitsy Tuxedo is a forked version of Bitsy Color, with aditional features.
+Such as:
+- Improved Pixel Art Editor
+    - Color Picker
+    - Paint Bucket
+    - Undo (CTRL+Z) & Redo (CTRL+Y)
 
-# Bug reports
-If you find a bug in this fork of Bitsy, please submit [an issue here](https://github.com/Rathermaddy/bitsy/issues).
-If it's not in upstream don't bother the folks upstream oky? :3
+- Import Local Image Files
+- Import Local Audio File
+- Dark Mode and Custom Themes
+- Brasilian Portuguese Translation
 
-# This fork
-This fork turns sprites form 1 bit into indexed sprites, the plan is to make this a sorta expanded upon bitsy engine.
+
+## Developers:
+- Beatriz Loyola (@beatrizloyola)
+- Pedro Bedor (@pedrovcb)
+
+</br>
+In case of bugs or suggestions, contact us!
