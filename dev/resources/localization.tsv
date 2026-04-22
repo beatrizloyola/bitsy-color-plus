@@ -283,3 +283,293 @@ default_tune_town_name	tuneful town																		cidade musical
 default_tune_ruins_name	rhythmic ruins																		ruínas rítmicas
 default_blip_meow_name	meow																		miau
 default_blip_key_name	pick up key																		pegar chave
+about_getting_started	getting started:																		começando:
+about_tutorial_link	tutorial																		tutorial
+about_community	community:																		comunidade:
+about_made_with_bitsy	made with bitsy																		feito com bitsy
+about_discord_server	discord server																		servidor discord
+about_itchio_forum	itch.io forum																		fórum itch.io
+about_development	development:																		desenvolvimento:
+about_contributors	contributors																		contribuidores
+about_version_notes	version notes																		notas de versão
+about_report_bug	report a bug																		reportar um bug
+about_source_code	source code																		código fonte
+transition_none	none																		nenhum
+font_custom	Custom Font - none																		Fonte customizada - nenhuma
+text_mode_default	default																		padrão
+text_mode_chunky	chunky																		grosso
+upload_data	upload data																		enviar dados
+px_unit	px																		px
+download_help_message	Note: your browser doesn't support direct downloads, so sharing requires some extra steps: press share, a new tab will open, save that tab, name it "mygame.html", share your game as a web page!																		Nota: seu navegador não suporta downloads diretos, então compartilhar requer algumas etapas extras: pressione compartilhar, uma nova aba abrirá, salve essa aba, nomeie como "myjogo.html", compartilhe seu jogo como página web!
+bitsy_logo_title	Bitsy ~ make little worlds ~																		Bitsy ~ faça pequenos mundos ~
+toolbar_toggle_title	show / hide toolbar																		mostrar / esconder barra de ferramentas
+play_pause_game_title	play / pause game																		jogar / pausar jogo
+about_panel_toggle_title	show / hide about window																		mostrar / esconder janela sobre
+exits_panel_toggle_title	show / hide exits & endings window																		mostrar / esconder janela de saídas e finais
+paint_panel_toggle_title	show / hide paint window																		mostrar / esconder janela de pintura
+colors_panel_toggle_title	show / hide color palette window																		mostrar / esconder janela de paleta de cores
+dialog_panel_toggle_title	show / hide dialog window																		mostrar / esconder janela de diálogo
+find_panel_toggle_title	show / hide find window																		mostrar / esconder janela de busca
+inventory_panel_toggle_title	show / hide inventory window																		mostrar / esconder janela de inventário
+download_panel_toggle_title	show / hide download window																		mostrar / esconder janela de download
+gif_panel_toggle_title	show / hide gif recording window																		mostrar / esconder janela de gravação gif
+data_panel_toggle_title	show / hide game data window																		mostrar / esconder janela de dados do jogo
+theme_panel_toggle_title	show / hide theme window																		mostrar / esconder janela de tema
+settings_panel_toggle_title	show / hide settings window																		mostrar / esconder janela de configurações
+reset_game_title	reset everything and start new game																		resetar tudo e começar novo jogo
+about_panel_title	about window																		janela sobre
+minimize_about_title	minimize about window																		minimizar janela sobre
+exits_panel_title	exits & endings window																		janela de saídas e finais
+minimize_exits_title	minimize exits & endings window																		minimizar janela de saídas e finais
+nav_previous_title	previous																		anterior
+nav_next_title	next																		próximo
+add_marker_title	add exit or ending																		adicionar saída ou final
+duplicate_marker_title	duplicate exit or ending																		duplicar saída ou final
+delete_title	delete																		deletar
+add_exit_title	add two-way exit																		adicionar saída bidirecional
+add_exit_one_way_title	add one-way exit																		adicionar saída unidirecional
+add_ending_title	add ending																		adicionar final
+cancel_title	cancel																		cancelar
+marker_canvas_title	location of marker (click to go to room)																		localização do marcador (clique para ir ao quarto)
+marker_coordinates_title	marker coordinates																		coordenadas do marcador
+marker_controls_title	marker controls																		controles do marcador
+place_marker_title	click to place marker in current room																		clique para colocar marcador no quarto atual
+edit_coordinates_title	edit coordinates																		editar coordenadas
+exit_options_toggle_title	show / hide exit options																		mostrar / esconder opções de saída
+change_exit_direction_title	change exit direction																		mudar direção da saída
+move_marker_title	click to move marker																		clique para mover marcador
+select_transition_title	select transition effect																		selecionar efeito de transição
+paint_panel_title	paint window																		janela de pintura
+minimize_paint_title	minimize paint window																		minimizar janela de pintura
+paint_avatar_title	edit the avatar: the player's character																		editar o avatar: personagem do jogador
+paint_tile_title	edit tiles: pieces of scenery																		editar tiles: peças de cenário
+paint_sprite_title	edit sprites: non-player characters and interactive objects																		editar sprites: personagens não-jogáveis e objetos interativos
+paint_item_title	edit items: things the player can pick up																		editar itens: coisas que o jogador pode pegar
+drawing_name_title	a name to refer to this drawing																		um nome para se referir a este desenho
+prev_drawing_title	previous drawing																		desenho anterior
+next_drawing_title	next drawing																		próximo desenho
+add_drawing_title	add drawing																		adicionar desenho
+duplicate_drawing_title	duplicate drawing																		duplicar desenho
+delete_drawing_title	delete drawing																		deletar desenho
+find_drawings_title	open find tool: drawings																		abrir ferramenta de busca: desenhos
+brush_title	brush																		pincel
+eraser_title	eraser																		borracha
+fill_title	fill																		preencher
+color_picker_tool_title	color picker																		seletor de cor
+undo_title	undo (Ctrl+Z)																		desfazer (Ctrl+Z)
+redo_title	redo (Ctrl+Y)																		refazer (Ctrl+Y)
+nudge_left_title	nudge left																		mover para esquerda
+nudge_right_title	nudge right																		mover para direita
+nudge_up_title	nudge up																		mover para cima
+nudge_down_title	nudge down																		mover para baixo
+rotate_cw_title	rotate clockwise																		girar em sentido horário
+rotate_ccw_title	rotate counter-clockwise																		girar em sentido anti-horário
+mirror_right_title	mirror to right																		espelhar para direita
+mirror_left_title	mirror to left																		espelhar para esquerda
+mirror_down_title	mirror to down																		espelhar para baixo
+mirror_up_title	mirror to up																		espelhar para cima
+flip_horizontal_title	horizontal flip																		virar horizontalmente
+flip_vertical_title	vertical flip																		virar verticalmente
+grid_toggle_title	show / hide grid																		mostrar / esconder grade
+show_inventory_title	show inventory																		mostrar inventário
+import_drawing_title	import image as new drawing																		importar imagem como novo desenho
+paint_color_title	paint with this color																		pintar com esta cor
+wall_toggle_title	make tile an impassible wall																		tornar tile uma parede intransponível
+animation_toggle_title	add animation to drawing																		adicionar animação ao desenho
+find_panel_title	find window																		janela de busca
+minimize_find_title	minimize find window																		minimizar janela de busca
+colors_panel_title	color palette window																		janela de paleta de cores
+minimize_colors_title	minimize color palette window																		minimizar janela de paleta de cores
+palette_name_title	a name to refer to this color palette																		um nome para se referir a esta paleta de cores
+prev_palette_title	previous color palette																		paleta de cores anterior
+next_palette_title	next color palette																		próxima paleta de cores
+add_palette_title	add new color palette																		adicionar nova paleta de cores
+duplicate_palette_title	duplicate palette																		duplicar paleta
+delete_palette_title	delete palette																		deletar paleta
+find_colors_title	open find tool: colors																		abrir ferramenta de busca: cores
+add_color_title	add color																		adicionar cor
+delete_color_title	delete color																		deletar cor
+color_picker_title	color picker																		seletor de cor
+color_picker_wheel_title	color picker wheel																		roda do seletor de cor
+color_picker_slider_title	color picker darkness / lightness slider																		controle deslizante de escuridão / luminosidade
+color_picker_hex_title	color picker hex code																		código hex do seletor de cor
+dialog_panel_title	dialog window																		janela de diálogo
+minimize_dialog_title	minimize dialog window																		minimizar janela de diálogo
+dialog_name_title	a name to refer to this dialog																		um nome para se referir a este diálogo
+prev_dialog_title	previous dialog																		diálogo anterior
+next_dialog_title	next dialog																		próximo diálogo
+add_dialog_title	add new dialog																		adicionar novo diálogo
+duplicate_dialog_title	duplicate dialog																		duplicar diálogo
+delete_dialog_title	delete dialog																		deletar diálogo
+find_dialog_title	open find tool: dialog																		abrir ferramenta de busca: diálogo
+dialog_code_toggle_title	show / hide the code for this dialog																		mostrar / esconder o código deste diálogo
+always_show_drawing_dialog_title	always show dialog of selected drawing																		sempre mostrar diálogo do desenho selecionado
+inventory_panel_title	inventory window																		janela de inventário
+minimize_inventory_title	minimize inventory window																		minimizar janela de inventário
+inventory_items_title	items: set count of items the player starts with																		itens: definir quantidade de itens que o jogador começa com
+inventory_variables_title	variables: set initial values of variables																		variáveis: definir valores iniciais das variáveis
+download_panel_title	download window																		janela de download
+minimize_download_title	minimize download window																		minimizar janela de download
+download_game_button_title	download game as html file																		baixar jogo como arquivo html
+import_game_title	import game from html file on your computer																		importar jogo de arquivo html no seu computador
+gif_panel_title	gif recording window																		janela de gravação gif
+minimize_gif_title	minimize gif recording window																		minimizar janela de gravação gif
+gif_start_title	start recording a gif of your game																		iniciar gravação de gif do seu jogo
+gif_stop_title	stop recording a gif of your game																		parar gravação de gif do seu jogo
+gif_snapshot_title	make screenshot of current room																		tirar screenshot do quarto atual
+gif_snapshot_mode_title	snapshot mode: square																		modo screenshot: quadrado
+gif_download_title	download latest gif recording of your game																		baixar última gravação gif do seu jogo
+data_panel_title	game data window																		janela de dados do jogo
+minimize_data_title	minimize game data window																		minimizar janela de dados do jogo
+game_data_textarea_title	raw text of the bitsy game data file (be careful when editing)																		texto bruto do arquivo de dados do jogo bitsy (cuidado ao editar)
+font_data_toggle_title	show / hide font data (WARNING: can be very slow for large fonts)																		mostrar / esconder dados da fonte (AVISO: pode ser muito lento para fontes grandes)
+download_data_button_title	download game data																		baixar dados do jogo
+import_data_title	import game data from a .bitsy file on your computer																		importar dados do jogo de um arquivo .bitsy no seu computador
+theme_panel_title	theme window																		janela de tema
+minimize_theme_title	minimize theme window																		minimizar janela de tema
+dark_mode_toggle_title	toggle dark mode																		alternar modo escuro
+tint_editing_title	tint color while editing																		cor de tonalidade durante edição
+tint_playing_title	tint color while playing																		cor de tonalidade durante jogo
+settings_panel_title	settings window																		janela de configurações
+minimize_settings_title	minimize settings window																		minimizar janela de configurações
+import_font_title	import font from bitsyfont file on your computer																		importar fonte de arquivo bitsyfont no seu computador
+download_font_title	download font file																		baixar arquivo de fonte
+text_mode_hint	textbox graphics mode																		modo gráfico da caixa de texto
+text_mode_select_title	select resolution of textbox pixels																		selecionar resolução dos pixels da caixa de texto
+text_hirez_description	2x pixel resolution																		resolução 2x de pixel
+text_lorez_description	1x pixel resolution																		resolução 1x de pixel
+page_color_title	pick background color for exported html page																		escolher cor de fundo para página html exportada
+export_size_full_title	game window resizes to fill page (mobile friendly)																		janela do jogo redimensiona para preencher a página (compatível com celular)
+export_size_fixed_title	game window stays a fixed size																		janela do jogo mantém tamanho fixo
+default_drawing_size_title	the size that new drawings will have by default																		o tamanho que novos desenhos terão por padrão
+blip_tool_name	blip-o-matic																		blip-o-matic
+music_tool_name	music																		música
+music_tab_tune	tune																		tune
+music_tab_blip	blip																		blip
+music_tab_audio	audio																		áudio
+dialog_label	dialog																		diálogo
+tune_label	tune																		tune
+blip_label	blip																		blip
+find_all	all																		todos
+find_placeholder	find by name or ID																		buscar por nome ou ID
+tune_play	play																		reproduzir
+tune_stop	stop																		parar
+tune_loop	loop																		repetir
+tune_compose	compose																		compor
+tune_instrument	instrument																		instrumento
+tune_style	style																		estilo
+tune_note	note																		nota
+tune_blip	blip																		blip
+tune_strum_off	strum off																		arpegio desligado
+tune_strum_chord_up	strum chord (up)																		arpegio (cima)
+tune_strum_chord_down	strum chord (down)																		arpegio (baixo)
+tune_strum_interval_small	strum interval (small)																		intervalo (pequeno)
+tune_strum_interval_big	strum interval (big)																		intervalo (grande)
+confirm_delete_dialog	Are you sure you want to delete this dialog?																		Tem certeza que quer deletar este diálogo?
+storage_error_alert	A storage error occurred: The editor will continue to work, but data may not be saved/loaded. Make sure to export a local copy after making changes, or your gamedata may be lost!																		Ocorreu um erro de armazenamento: o editor continuará funcionando, mas os dados podem não ser salvos/carregados. Certifique-se de exportar uma cópia local após fazer alterações, ou seus dados do jogo podem ser perdidos!
+select_image_alert	Please select an image file.																		Por favor, selecione um arquivo de imagem.
+cant_download_playing	You can't download your game while you're playing it! Sorry :(																		Você não pode baixar seu jogo enquanto está jogando! Desculpe :(
+cant_upload_playing	You can't upload a game while you're playing one! Sorry :(																		Você não pode carregar um jogo enquanto está jogando! Desculpe :(
+confirm_delete_drawing	Are you sure you want to delete this drawing?																		Tem certeza que quer deletar este desenho?
+cant_delete_last_tile	You can't delete your last tile!																		Você não pode deletar o seu último tile!
+cant_delete_last_sprite	You can't delete your last sprite!																		Você não pode deletar o seu último sprite!
+cant_delete_last_item	You can't delete your last item!																		Você não pode deletar o seu último item!
+cant_delete_only_palette	You can't delete your only palette!																		Você não pode deletar sua única paleta!
+confirm_delete_palette	Are you sure you want to delete this palette?																		Tem certeza que quer deletar esta paleta?
+nothing_here_label	there's nothing here yet!																		não há nada aqui ainda!
+nothing_here_description	bitsycat says: there's nothing here - try clicking the add button! :)																		bitsycat diz: não há nada aqui - tente clicar no botão adicionar! :)
+nav_previous	previous																		anterior
+nav_next	next																		próximo
+nav_add	add																		adicionar
+nav_duplicate	duplicate																		duplicar
+nav_delete	delete																		deletar
+nav_find	open find tool																		abrir ferramenta de busca
+confirm_delete_prefix	are you sure you want to delete this																		tem certeza que quer deletar este
+none_option	none																		nenhum
+color_option_background	ground																		fundo
+color_option_tile	tile																		tile
+color_option_sprite	sprite																		sprite
+bool_true	true																		verdadeiro
+bool_false	false																		falso
+tune_bar	bar																		compasso
+tune_melody	melody																		melodia
+tune_harmony	harmony																		harmonia
+tune_selected_bar	selected bar																		compasso selecionado
+tune_bar_move_left	move selected bar left																		mover compasso para a esquerda
+tune_bar_move_right	move selected bar right																		mover compasso para a direita
+tune_bar_add	add empty bar to end of tune																		adicionar compasso vazio ao fim
+tune_bar_copy	make copy of selected bar and add it to the end of tune																		copiar compasso e adicionar ao fim
+tune_bar_remove	remove selected bar from tune																		remover compasso selecionado
+tune_compose_description	note editing tools																		ferramentas de edição de notas
+tune_instrument_description	instrument settings																		configurações do instrumento
+tune_style_description	tune settings																		configurações da melodia
+tune_note_description	click & drag to draw notes																		clique e arraste para desenhar notas
+tune_blip_description	click to insert selected blip as a note																		clique para inserir o blip selecionado como nota
+tune_strum_description	harmony strum pattern (arpeggios)																		padrão de arpegio da harmonia
+tune_speed	speed																		velocidade
+tune_speed_description	tune speed (tempo)																		velocidade da melodia (tempo)
+tune_tempo_slow	slow																		devagar
+tune_tempo_medium	medium																		médio
+tune_tempo_fast	fast																		rápido
+tune_tempo_turbo	turbo																		turbo
+tune_mood	mood																		humor
+tune_mood_description	tune mood (transpose between major & minor key)																		humor da melodia (transpor entre maior e menor)
+tune_mood_cheery	cheery																		alegre
+tune_mood_gloomy	gloomy																		sombrio
+tune_mood_major	major key																		escala maior
+tune_mood_minor	minor key																		escala menor
+tune_key	key																		escala
+cant_delete_last_tune	you can't delete your last tune!																		você não pode deletar sua última melodia!
+blip_play_description	play blip																		reproduzir blip
+blip_pitch	pitch																		frequência
+blip_pitch_description	adjust the pitch																		ajustar a frequência
+blip_pitch_lower	lower pitch																		diminuir frequência
+blip_pitch_higher	higher pitch																		aumentar frequência
+blip_length	length																		duração
+blip_length_description	adjust the total play time (duration)																		ajustar o tempo total de reprodução (duração)
+blip_length_shorter	shorter																		mais curto
+blip_length_longer	longer																		mais longo
+blip_speed	speed																		velocidade
+blip_speed_description	adjust the time between each pitch change																		ajustar o tempo entre cada mudança de frequência
+blip_speed_slower	slower																		mais devagar
+blip_speed_faster	faster																		mais rápido
+blip_generator	generator																		gerador
+blip_generator_description	type of sound to generate when adding blips																		tipo de som a gerar ao adicionar blips
+blip_generator_select_description	select sound effect category																		selecionar categoria de efeito sonoro
+cant_delete_last_blip	you can't delete your last blip!																		você não pode deletar o seu último blip!
+room_menu_edit_description	room editing tools																		ferramentas de edição de sala
+room_menu_colors_description	room palette settings																		configurações de paleta da sala
+room_menu_music_description	room music settings																		configurações de música da sala
+room_menu_avatar_description	room avatar settings																		configurações de avatar da sala
+room_edit_tool_description	edit tool																		ferramenta de edição
+room_paint_tool_description	paint: draw or erase selected tile, sprite, or item (alt: swap with pick)																		pintar: desenhe ou apague o tile, sprite ou item selecionado (alt: trocar com seletor)
+room_pick_tool_description	eyedropper: click to select tile, sprite, or item in paint tool (alt: swap with paint)																		conta-gotas: clique para selecionar tile, sprite ou item na ferramenta pintar (alt: trocar com pintar)
+room_exits_tool_description	select or move exits & endings																		selecionar ou mover saídas e fins
+room_open_exits_description	open exits & endings tool																		abrir ferramenta de saídas e fins
+room_visibility_description	visibility settings																		configurações de visibilidade
+room_grid_description	show/hide tile grid																		mostrar/esconder grade de tiles
+room_walls_description	show/hide wall tiles																		mostrar/esconder tiles de parede
+room_palette_description	select color palette																		selecionar paleta de cores
+room_avatar_description	select avatar appearance																		selecionar aparência do avatar
+room_music_description	select music for this room																		selecionar música para esta sala
+room_music_off	off																		desligado
+room_music_off_description	no music																		sem música
+cant_delete_room_0	bitsycat says: don't delete room 0 or else your game will become haunted!																		bitsycat diz: não delete a sala 0 ou seu jogo ficará assombrado!
+cant_delete_only_room	you can't delete your only room!																		você não pode deletar sua única sala!
+audio_import_hint	import songs and sound effects as audio files																		importar músicas e efeitos sonoros como arquivos de áudio
+audio_import_button	import audio																		importar áudio
+audio_not_audio_file	doesn't seem to be an audio file.																		não parece ser um arquivo de áudio.
+audio_read_error	Could not read																		Não foi possível ler
+audio_no_files_yet	no audio files yet																		sem arquivos de áudio ainda
+audio_preview_description	preview																		prévia
+audio_stop_preview	stop preview																		parar prévia
+audio_remove_description	remove																		remover
+confirm_delete_exit	Are you sure you want to delete this exit?																		Tem certeza que quer deletar esta saída?
+confirm_delete_ending	Are you sure you want to delete this ending?																		Tem certeza que quer deletar este fim?
+import_too_many_colors_1	This image would add																		Esta imagem adicionaria
+import_too_many_colors_2	new color(s) to the palette, but it's already at																		nova(s) cor(es) à paleta, mas ela já está em
+import_too_many_colors_ok	OK — import anyway (extra colors mapped to nearest match)																		OK — importar mesmo assim (cores extras mapeadas para o mais próximo)
+import_too_many_colors_cancel	Cancel — abort import																		Cancelar — abortar importação
+tune_play_description	play tune from selected bar																		reproduzir melodia a partir do compasso selecionado
+tune_loop_description	repeat current bar																		repetir compasso atual
+tune_note_entry_description	note entry tool																		ferramenta de inserção de notas

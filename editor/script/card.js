@@ -27,7 +27,15 @@ function makeToolCard(processName, initFunction) {
 
 	var titleSpan = document.createElement("span");
 	titleSpan.classList.add("bitsy-card-title");
-	titleSpan.innerText = card.name;
+	if (card.nameKey) {
+		var nameLabel = document.createElement("span");
+		nameLabel.classList.add("localize");
+		nameLabel.classList.add(card.nameKey);
+		nameLabel.innerText = card.name;
+		titleSpan.appendChild(nameLabel);
+	} else {
+		titleSpan.innerText = card.name;
+	}
 	titleSpan.onmousedown = function(event) {
 		grabCard(event);
 	};
@@ -82,6 +90,7 @@ function makeToolCard(processName, initFunction) {
 		var nothingHereLabel = createLabelElement({
 			icon: "sprite",
 			style: "bitsy-label-style-button",
+			textKey: "nothing_here_label",
 			text: "there's nothing here yet!",
 			description: "bitsycat says: there's nothing here - try clicking the add button! :)"
 		});
@@ -114,6 +123,7 @@ function makeToolCard(processName, initFunction) {
 			createToggleElement({
 				icon: card.icon,
 				text: card.name,
+				textKey: card.nameKey,
 				id: card.id + "Check",
 				value: card.id + "Panel",
 				style: "bitsy-tool-toggle",
@@ -326,7 +336,7 @@ function createNavControls(options) {
 
 	var prevButton = createButtonElement({
 		icon : "previous",
-		description : "previous " + category.getCategoryName(),
+		description : localization.GetStringOrFallback("nav_previous", "previous") + " " + category.getCategoryName(),
 		onclick : function() {
 			selectAtIndex(getCurIndex() - 1);
 		},
@@ -335,7 +345,7 @@ function createNavControls(options) {
 
 	var nextButton = createButtonElement({
 		icon : "next",
-		description : "next " + category.getCategoryName(),
+		description : localization.GetStringOrFallback("nav_next", "next") + " " + category.getCategoryName(),
 		onclick : function() {
 			selectAtIndex(getCurIndex() + 1);
 		}
@@ -344,7 +354,7 @@ function createNavControls(options) {
 
 	var addButton = createButtonElement({
 		icon : "add",
-		description : "add " + category.getCategoryName(),
+		description : localization.GetStringOrFallback("nav_add", "add") + " " + category.getCategoryName(),
 		onclick : function() {
 			bitsy = options.system; // hack to use correct system
 			options.add();
@@ -356,7 +366,7 @@ function createNavControls(options) {
 
 	var copyButton = createButtonElement({
 		icon : "copy",
-		description : "duplicate " + category.getCategoryName(),
+		description : localization.GetStringOrFallback("nav_duplicate", "duplicate") + " " + category.getCategoryName(),
 		onclick : function() {
 			options.duplicate(selectedId);
 			refreshGameData();
@@ -367,11 +377,9 @@ function createNavControls(options) {
 
 	var deleteButton = createButtonElement({
 		icon : "delete",
-		description : "delete " + category.getCategoryName(),
+		description : localization.GetStringOrFallback("nav_delete", "delete") + " " + category.getCategoryName(),
 		onclick : function() {
-			// todo : warn about deleting last object?
-			// todo : localize
-			if (confirm("are you sure you want to delete this " + category.getCategoryName() + "?")) {
+			if (confirm(localization.GetStringOrFallback("confirm_delete_prefix", "are you sure you want to delete this") + " " + category.getCategoryName() + "?")) {
 				var curIndex = getCurIndex();
 				options.delete(selectedId);
 				refreshGameData();
@@ -383,7 +391,7 @@ function createNavControls(options) {
 
 	var findButton = createButtonElement({
 		icon : "search",
-		description : "open find tool: " + category.getCategoryName(),
+		description : localization.GetStringOrFallback("nav_find", "open find tool") + ": " + category.getCategoryName(),
 		onclick : function() {
 			openFindTool(options.data, options.cardDivId);
 		},

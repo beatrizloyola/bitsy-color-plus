@@ -121,10 +121,10 @@ var pixelArtImporter = (function () {
 				var newColorCount = countNewColors(rawData, targetSize, palId);
 				if (palColors.length + newColorCount > 64) {
 					var proceed = confirm(
-						'This image would add ' + newColorCount + ' new color(s) to the palette, ' +
-						'but it\'s already at ' + palColors.length + '/64.\n\n' +
-						'OK — import anyway (extra colors mapped to nearest match)\n' +
-						'Cancel — abort import'
+						localization.GetStringOrFallback("import_too_many_colors_1", "This image would add") + ' ' + newColorCount + ' ' +
+						localization.GetStringOrFallback("import_too_many_colors_2", "new color(s) to the palette, but it's already at") + ' ' + palColors.length + '/64.\n\n' +
+						localization.GetStringOrFallback("import_too_many_colors_ok", "OK — import anyway (extra colors mapped to nearest match)") + '\n' +
+						localization.GetStringOrFallback("import_too_many_colors_cancel", "Cancel — abort import")
 					);
 					if (!proceed) return;
 				}

@@ -524,7 +524,7 @@ function duplicateDialog() {
 }
 
 function deleteDialog() {
-	var shouldDelete = confirm("Are you sure you want to delete this dialog?");
+	var shouldDelete = confirm(localization.GetStringOrFallback("confirm_delete_dialog", "Are you sure you want to delete this dialog?"));
 
 	if (shouldDelete && curDialogEditorId != null && curDialogEditorId != titleDialogId) {
 		var tempDialogId = curDialogEditorId;
@@ -958,7 +958,7 @@ function start() {
 	localization = new Localization(urlParameters["lang"]);
 	Store.init(function () {
 		// TODO: localize
-		window.alert('A storage error occurred: The editor will continue to work, but data may not be saved/loaded. Make sure to export a local copy after making changes, or your gamedata may be lost!');
+		window.alert(localization.GetStringOrFallback("storage_error_alert", "A storage error occurred: The editor will continue to work, but data may not be saved/loaded. Make sure to export a local copy after making changes, or your gamedata may be lost!"));
 	});
 
 	paintTool = new PaintTool(document.getElementById("paint"), document.getElementById("newPaintMenu"));
@@ -1148,6 +1148,9 @@ function start() {
 	tuneTool = makeTuneTool();
 	blipTool = makeBlipTool();
 	makeMusicTool(tuneTool, blipTool);
+
+	// re-localize after dynamic tool cards are created (cards are built after the first Localize() call)
+	localization.Localize();
 
 	// load panel preferences
 	var prefs = getPanelPrefs();
@@ -1768,7 +1771,7 @@ function closeImportModal() {
 function doPixelImport() {
 	var fileInput = document.getElementById('importFileInput');
 	if (!fileInput.files || !fileInput.files[0]) {
-		alert('Please select an image file.');
+		alert(localization.GetStringOrFallback("select_image_alert", "Please select an image file."));
 		return;
 	}
 	var checkedRadio = document.querySelector('input[name="importType"]:checked');
@@ -2141,7 +2144,7 @@ function filenameFromGameTitle() {
 
 function exportGame() {
 	if (isPlayMode) {
-		alert("You can't download your game while you're playing it! Sorry :(");
+		alert(localization.GetStringOrFallback("cant_download_playing", "You can't download your game while you're playing it! Sorry :("));
 		return;
 	}
 
@@ -2632,7 +2635,7 @@ function finishRecordingGif(gif) {
 /* LOAD FROM FILE */
 function importGameFromFile(e) {
 	if (isPlayMode) {
-		alert("You can't upload a game while you're playing one! Sorry :(");
+		alert(localization.GetStringOrFallback("cant_upload_playing", "You can't upload a game while you're playing one! Sorry :("));
 		return;
 	}
 
@@ -2691,7 +2694,7 @@ function importFontFromFile(e) {
 
 function importGameDataFromFile(e) {
 	if (isPlayMode) {
-		alert("You can't upload a game while you're playing one! Sorry :(");
+		alert(localization.GetStringOrFallback("cant_upload_playing", "You can't upload a game while you're playing one! Sorry :("));
 		return;
 	}
 

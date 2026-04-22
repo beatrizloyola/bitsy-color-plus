@@ -1,7 +1,8 @@
 function makeRoomTool() {
 	return makeToolCard("room", function(tool) {
 		tool.id = "room";
-		tool.name = "room"; // todo : localize
+		tool.name = "room";
+		tool.nameKey = "room_tool_name";
 		tool.icon = "room";
 		tool.size = "l";
 		tool.data = "ROOM";
@@ -498,10 +499,10 @@ function makeRoomTool() {
 				name: "roomMenuSelect",
 				value: curMenu,
 				options: [
-					{ icon: "edit", text: localization.GetStringOrFallback("room_menu_edit", "edit"), description: "room editing tools", value: RoomMenu.EDIT, },
-					{ icon: "colors", text: localization.GetStringOrFallback("palette_tool_name", "colors"), description: "room palette settings", value: RoomMenu.COLORS, },
-					{ icon: "note", text: localization.GetStringOrFallback("music_tool_name", "music"), description: "room music settings", value: RoomMenu.TUNE, },
-					{ icon: "avatar", text: localization.GetStringOrFallback("avatar_label", "avatar"), description: "room avatar settings", value: RoomMenu.AVATAR, }
+					{ icon: "edit", text: localization.GetStringOrFallback("room_menu_edit", "edit"), description: localization.GetStringOrFallback("room_menu_edit_description", "room editing tools"), value: RoomMenu.EDIT, },
+					{ icon: "colors", text: localization.GetStringOrFallback("palette_tool_name", "colors"), description: localization.GetStringOrFallback("room_menu_colors_description", "room palette settings"), value: RoomMenu.COLORS, },
+					{ icon: "note", text: localization.GetStringOrFallback("music_tool_name", "music"), description: localization.GetStringOrFallback("room_menu_music_description", "room music settings"), value: RoomMenu.TUNE, },
+					{ icon: "avatar", text: localization.GetStringOrFallback("avatar_label", "avatar"), description: localization.GetStringOrFallback("room_menu_avatar_description", "room avatar settings"), value: RoomMenu.AVATAR, }
 				],
 				onchange: function(e) {
 					curMenu = parseInt(e.target.value);
@@ -514,7 +515,7 @@ function makeRoomTool() {
 				// tool select
 				tool.menu.push({ control: "group" });
 
-				tool.menu.push({ control: "label", icon: "edit", description: "edit tool" });
+				tool.menu.push({ control: "label", icon: "edit", description: localization.GetStringOrFallback("room_edit_tool_description", "edit tool") });
 
 				tool.menu.push({
 					control: "select",
@@ -524,19 +525,19 @@ function makeRoomTool() {
 						{
 							icon: "paint",
 							text: localization.GetStringOrFallback("paint_tool_name", "paint"),
-							description: "paint: draw or erase selected tile, sprite, or item (alt: swap with pick)",
+							description: localization.GetStringOrFallback("room_paint_tool_description", "paint: draw or erase selected tile, sprite, or item (alt: swap with pick)"),
 							value: RoomEditTool.PAINT
 						},
 						{
 							icon: "eyedropper",
 							text: localization.GetStringOrFallback("pick_tool_name", "pick"),
-							description: "eyedropper: click to select tile, sprite, or item in paint tool (alt: swap with paint)",
+							description: localization.GetStringOrFallback("room_pick_tool_description", "eyedropper: click to select tile, sprite, or item in paint tool (alt: swap with paint)"),
 							value: RoomEditTool.PICK
 						},
 						{
 							icon: "exits_endings",
 							text: localization.GetStringOrFallback("marker_tool_name", "exits & endings"),
-							description: "select or move exits & endings",
+							description: localization.GetStringOrFallback("room_exits_tool_description", "select or move exits & endings"),
 							value: RoomEditTool.EXITS
 						}
 					],
@@ -555,7 +556,7 @@ function makeRoomTool() {
 					tool.menu.push({
 						control: "button",
 						icon: "open_tool",
-						description: "open exits & endings tool",
+						description: localization.GetStringOrFallback("room_open_exits_description", "open exits & endings tool"),
 						onclick: function() {
 							// todo : hacky?
 							showPanel("exitsPanel", "roomPanel");
@@ -568,14 +569,14 @@ function makeRoomTool() {
 				// visibility settings
 				tool.menu.push({ control: "group" });
 
-				tool.menu.push({ control: "label", icon: "visibility", description: "visibility settings" });
+				tool.menu.push({ control: "label", icon: "visibility", description: localization.GetStringOrFallback("room_visibility_description", "visibility settings") });
 
 				tool.menu.push({
 					control: "toggle",
 					id: "roomGridToggle", // todo : auto-generate these?
 					icon: isGridVisible ? "visibility" : "visibility_off",
 					text: localization.GetStringOrFallback("grid_toggle_visible", "grid"),
-					description: "show/hide tile grid",
+					description: localization.GetStringOrFallback("room_grid_description", "show/hide tile grid"),
 					checked: isGridVisible,
 					onclick: function(e) { isGridVisible = e.target.checked; }
 				});
@@ -585,7 +586,7 @@ function makeRoomTool() {
 					id: "roomWallToggle",
 					icon: areWallsVisible ? "visibility" : "visibility_off",
 					text: localization.GetStringOrFallback("walls_toggle_visible", "walls"),
-					description: "show/hide wall tiles",
+					description: localization.GetStringOrFallback("room_walls_description", "show/hide wall tiles"),
 					checked: areWallsVisible,
 					onclick: function(e) { areWallsVisible = e.target.checked; }
 				});
@@ -595,7 +596,7 @@ function makeRoomTool() {
 			else if (curMenu === RoomMenu.COLORS) {
 				tool.menu.push({ control: "group" });
 
-				tool.menu.push({ control: "label", icon : "colors", description : "select color palette", });
+				tool.menu.push({ control: "label", icon : "colors", description : localization.GetStringOrFallback("room_palette_description", "select color palette"), });
 
 				tool.menu.push({
 					control: "select",
@@ -623,7 +624,7 @@ function makeRoomTool() {
 			else if (curMenu === RoomMenu.AVATAR) {
 				tool.menu.push({ control: "group" });
 
-				tool.menu.push({ control: "label", icon : "avatar", description : "select avatar appearance", });
+				tool.menu.push({ control: "label", icon : "avatar", description : localization.GetStringOrFallback("room_avatar_description", "select avatar appearance"), });
 				tool.menu.push({
 					control: "select",
 					data: "SPR",
@@ -645,10 +646,10 @@ function makeRoomTool() {
 			else if (curMenu === RoomMenu.TUNE) {
 				tool.menu.push({ control: "group" });
 
-				tool.menu.push({ control: "label", icon: "note", description: "select music for this room" });
+				tool.menu.push({ control: "label", icon: "note", description: localization.GetStringOrFallback("room_music_description", "select music for this room") });
 
 				// Build combined options: off + built-in tunes + imported audio files
-				var musicOptions = [{ value: null, text: "off", description: "no music" }];
+				var musicOptions = [{ value: null, text: localization.GetStringOrFallback("room_music_off", "off"), description: localization.GetStringOrFallback("room_music_off_description", "no music") }];
 
 				var tuneOptions = createOptionsForFindCategory("TUNE");
 				for (var ti = 0; ti < tuneOptions.length; ti++) {
@@ -781,12 +782,12 @@ function makeRoomTool() {
 		tool.delete = function(id) {
 			// todo : should some of these protections go in the card system?
 			if (id === "0") {
-				alert("bitsycat says: don't delete room 0 or else your game will become haunted!");
+				alert(localization.GetStringOrFallback("cant_delete_room_0", "bitsycat says: don't delete room 0 or else your game will become haunted!"));
 				return;
 			}
 
 			if (sortedRoomIdList().length <= 1) {
-				alert("you can't delete your only room!");
+				alert(localization.GetStringOrFallback("cant_delete_only_room", "you can't delete your only room!"));
 				return;
 			}
 

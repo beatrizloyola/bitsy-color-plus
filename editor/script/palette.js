@@ -295,9 +295,9 @@ function PaletteTool(colorPicker,colorCallback,nameFieldId) { //,colorCallback
 
 	this.DeleteSelected = function() {
 		if (sortedPaletteIdList().length <= 1) {
-			alert("You can't delete your only palette!");
+			alert(localization.GetStringOrFallback("cant_delete_only_palette", "You can't delete your only palette!"));
 		}
-		else if (confirm("Are you sure you want to delete this palette?")) {
+		else if (confirm(localization.GetStringOrFallback("confirm_delete_palette", "Are you sure you want to delete this palette?"))) {
 			delete palette[curPaletteId];
 
 			// replace palettes for rooms using the current palette

@@ -625,10 +625,10 @@ function RoomMarkerTool(markerCanvas1, markerCanvas2) {
 
 		var shouldDeleteMarker = false;
 		if (curMarker.type === MarkerType.Exit) {
-			shouldDeleteMarker = confirm("Are you sure you want to delete this exit?");
+			shouldDeleteMarker = confirm(localization.GetStringOrFallback("confirm_delete_exit", "Are you sure you want to delete this exit?"));
 		}
 		else {
-			shouldDeleteMarker = confirm("Are you sure you want to delete this ending?");
+			shouldDeleteMarker = confirm(localization.GetStringOrFallback("confirm_delete_ending", "Are you sure you want to delete this ending?"));
 		}
 
 		if (!shouldDeleteMarker) {

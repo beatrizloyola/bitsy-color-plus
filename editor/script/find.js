@@ -219,7 +219,7 @@ function FindTool(options) {
 			id: "TUNE",
 			icon: "tune",
 			getIdList: function() { return sortedBase36IdList(tune); },
-			getCategoryName: function() { return "tune"; },
+			getCategoryName: function() { return localization.GetStringOrFallback("tune_label", "tune"); },
 			getItemName: function(id) { return (id && tune[id]) ? tune[id].name : ""; },
 			getItemDescription: function(id, short) {
 				if (short) {
@@ -248,7 +248,7 @@ function FindTool(options) {
 			id: "BLIP",
 			icon: "blip",
 			getIdList: function() { return sortedBase36IdList(blip); },
-			getCategoryName: function() { return "blip"; },
+			getCategoryName: function() { return localization.GetStringOrFallback("blip_label", "blip"); },
 			getItemName: function(id) { return (id && blip[id]) ? blip[id].name : ""; },
 			getItemDescription: function(id, short) {
 				if (short) {
@@ -288,7 +288,7 @@ function FindTool(options) {
 	}));
 
 	searchGroup.appendChild(createTextInputElement({
-		placeholder: "find by name or ID", // todo : localize
+		placeholder: localization.GetStringOrFallback("find_placeholder", "find by name or ID"),
 		style: "with-badge",
 		onchange: function(e) {
 			curSearchText = e.target.value;
@@ -300,7 +300,7 @@ function FindTool(options) {
 
 	var filterTabList = [
 		{
-			text: "all", // todo : localize
+			text: localization.GetStringOrFallback("find_all", "all"),
 			value: "ALL",
 			icon: "game_data",
 		},

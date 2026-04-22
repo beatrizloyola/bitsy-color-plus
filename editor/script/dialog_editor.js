@@ -234,7 +234,7 @@ function DialogTool() {
 			var dialogIdList = sortedDialogIdList();
 			if (allowNone) {
 				var dialogNoneOption = document.createElement("option");
-				dialogNoneOption.innerText = "none";
+				dialogNoneOption.innerText = localization.GetStringOrFallback("none_option", "none");
 				dialogNoneOption.value = "none";
 				dialogNoneOption.selected = dialogId === null;
 				dialogIdSelect.appendChild(dialogNoneOption);
@@ -1310,19 +1310,19 @@ function DialogTool() {
 
 		var textEffectsColorBackgroundOption = document.createElement("option");
 		textEffectsColorBackgroundOption.value = 0;
-		textEffectsColorBackgroundOption.innerText = "ground";
+		textEffectsColorBackgroundOption.innerText = localization.GetStringOrFallback("color_option_background", "ground");
 		textEffectsColorBackgroundOption.title = "make text the background color (0)";
 		textEffectsColorSelect.appendChild(textEffectsColorBackgroundOption);
 
 		var textEffectsColorTileOption = document.createElement("option");
 		textEffectsColorTileOption.value = 1;
-		textEffectsColorTileOption.innerText = "tile";
+		textEffectsColorTileOption.innerText = localization.GetStringOrFallback("color_option_tile", "tile");
 		textEffectsColorTileOption.title = "make text the tile color (1)";
 		textEffectsColorSelect.appendChild(textEffectsColorTileOption);
 
 		var textEffectsColorSpriteOption = document.createElement("option");
 		textEffectsColorSpriteOption.value = 2;
-		textEffectsColorSpriteOption.innerText = "sprite";
+		textEffectsColorSpriteOption.innerText = localization.GetStringOrFallback("color_option_sprite", "sprite");
 		textEffectsColorSpriteOption.title = "make text the sprite color (2)";
 		textEffectsColorSelect.appendChild(textEffectsColorSpriteOption);
 
@@ -3112,13 +3112,13 @@ function DialogTool() {
 
 				var boolTrueOption = document.createElement("option");
 				boolTrueOption.value = "true";
-				boolTrueOption.innerText = "true"; // TODO : localize
+				boolTrueOption.innerText = localization.GetStringOrFallback("bool_true", "true");
 				boolTrueOption.selected = value;
 				parameterInput.appendChild(boolTrueOption);
 
 				var boolFalseOption = document.createElement("option");
 				boolFalseOption.value = "false";
-				boolFalseOption.innerText = "false"; // TODO : localize
+				boolFalseOption.innerText = localization.GetStringOrFallback("bool_false", "false");
 				boolFalseOption.selected = !value;
 				parameterInput.appendChild(boolFalseOption);
 

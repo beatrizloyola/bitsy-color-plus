@@ -27,7 +27,10 @@ function makeMusicTool(tuneTool, blipTool) {
 
 	var titleSpan = document.createElement("span");
 	titleSpan.classList.add("bitsy-card-title");
-	titleSpan.innerText = "music";
+	var titleLabel = document.createElement("span");
+	titleLabel.classList.add("localize", "music_tool_name");
+	titleLabel.innerText = "music";
+	titleSpan.appendChild(titleLabel);
 	titleSpan.onmousedown = function(e) { grabCard(e); };
 	titlebar.appendChild(titleSpan);
 
@@ -58,9 +61,9 @@ function makeMusicTool(tuneTool, blipTool) {
 	}
 
 	var tabDefs = [
-		{ id: "tune",  icon: "tune",   label: "tune"  },
-		{ id: "blip",  icon: "blip",   label: "blip"  },
-		{ id: "audio", icon: "upload", label: "audio" },
+		{ id: "tune",  icon: "tune",   label: "tune",  textKey: "music_tab_tune"  },
+		{ id: "blip",  icon: "blip",   label: "blip",  textKey: "music_tab_blip"  },
+		{ id: "audio", icon: "upload", label: "audio", textKey: "music_tab_audio" },
 	];
 
 	for (var i = 0; i < tabDefs.length; i++) {
@@ -68,6 +71,7 @@ function makeMusicTool(tuneTool, blipTool) {
 			var btn = createButtonElement({
 				icon: def.icon,
 				text: def.label,
+				textKey: def.textKey,
 				onclick: function() { switchTab(def.id); }
 			});
 			btn.classList.add("music-tab-btn");
@@ -117,6 +121,7 @@ function makeMusicTool(tuneTool, blipTool) {
 		createToggleElement({
 			icon: "note",
 			text: "music",
+			textKey: "music_tool_name",
 			id: "musicCheck",
 			value: "musicPanel",
 			style: "bitsy-tool-toggle",
@@ -141,7 +146,7 @@ function makeMusicTool(tuneTool, blipTool) {
 function buildAudioTab(container) {
 	var hint = document.createElement("p");
 	hint.classList.add("audio-tab-hint");
-	hint.innerText = "import songs and sound effects as audio files";
+	hint.innerText = localization.GetStringOrFallback("audio_import_hint", "import songs and sound effects as audio files");
 	container.appendChild(hint);
 
 	// File input (hidden) + label as button
@@ -163,7 +168,7 @@ function buildAudioTab(container) {
 	importLabel.title = "import audio files (mp3, wav, ogg, ...)";
 	importLabel.appendChild(createIconElement("upload"));
 	var importText = document.createElement("span");
-	importText.innerText = "import audio";
+	importText.innerText = localization.GetStringOrFallback("audio_import_button", "import audio");
 	importLabel.appendChild(importText);
 	container.appendChild(importLabel);
 
@@ -182,7 +187,7 @@ function handleAudioImport(files) {
 	for (var i = 0; i < files.length; i++) {
 		(function(file) {
 			if (!file.type.startsWith("audio/")) {
-				alert('"' + file.name + '" doesn\'t seem to be an audio file.');
+				alert('"' + file.name + '" ' + localization.GetStringOrFallback("audio_not_audio_file", "doesn't seem to be an audio file."));
 				if (--pending === 0) { saveAudioData(); refreshAudioList(); }
 				return;
 			}
@@ -199,7 +204,7 @@ function handleAudioImport(files) {
 				if (--pending === 0) { saveAudioData(); refreshAudioList(); }
 			};
 			reader.onerror = function() {
-				alert('Could not read "' + file.name + '".');
+				alert(localization.GetStringOrFallback("audio_read_error", "Could not read") + ' "' + file.name + '".');
 				if (--pending === 0) { saveAudioData(); refreshAudioList(); }
 			};
 			reader.readAsDataURL(file);
@@ -219,7 +224,7 @@ function refreshAudioList() {
 	if (ids.length === 0) {
 		var emptyMsg = document.createElement("p");
 		emptyMsg.classList.add("audio-empty-msg");
-		emptyMsg.innerText = "no audio files yet";
+		emptyMsg.innerText = localization.GetStringOrFallback("audio_no_files_yet", "no audio files yet");
 		listContainer.appendChild(emptyMsg);
 		return;
 	}
@@ -246,7 +251,7 @@ function refreshAudioList() {
 
 			var playBtn = createButtonElement({
 				icon: "play",
-				description: "preview: " + af.name,
+				description: localization.GetStringOrFallback("audio_preview_description", "preview") + ": " + af.name,
 				onclick: function() {
 					if (curAudio) {
 						curAudio.pause();
@@ -260,7 +265,7 @@ function refreshAudioList() {
 
 			var stopBtn = createButtonElement({
 				icon: "stop",
-				description: "stop preview",
+				description: localization.GetStringOrFallback("audio_stop_preview", "stop preview"),
 				onclick: function() {
 					if (curAudio) {
 						curAudio.pause();
@@ -273,9 +278,9 @@ function refreshAudioList() {
 
 			var deleteBtn = createButtonElement({
 				icon: "delete",
-				description: "remove " + af.name,
+				description: localization.GetStringOrFallback("audio_remove_description", "remove") + " " + af.name,
 				onclick: function() {
-					if (confirm('remove "' + af.name + '"?')) {
+					if (confirm(localization.GetStringOrFallback("audio_remove_description", "remove") + ' "' + af.name + '"?')) {
 						if (curAudio) { curAudio.pause(); curAudio = null; }
 						delete audioFiles[af.id];
 						saveAudioData();

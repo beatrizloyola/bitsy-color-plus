@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<!-- META -->
@@ -75,7 +75,7 @@
 		<!-- FONTS -->
 		<link href="style/googleNunito.css" rel="stylesheet">
 	</head>
- 
+
 	<body onload="start()">
 
 		<div id="appRoot">
@@ -87,7 +87,7 @@
 				<div id="topbarFlexContainer">
 
 					<div id="logoFlexItem">
-						<span title="Bitsy ~ make little worlds ~" id="bitsyLogoTitle">
+						<span data-localize-title="bitsy_logo_title" id="bitsyLogoTitle">
 							<img id="bitsyLogo" src="image/cat.svg" onclick="window.open('https://www.bitsy.org');" style="cursor: pointer;" />
 							<span id="bitsyTitle" class="localize bitsy_title">Bitsy</span>
 						</span>
@@ -99,14 +99,14 @@
 
 					<!-- show tools -->
 					<input type="checkbox" value="toolsPanel" id="toolsCheck" onclick="toggleToolBar(event);" autocomplete="off" />
-					<label title="show / hide toolbar" for="toolsCheck" id="toolsCheckLabel" class="bitsy-menu-label">
+					<label data-localize-title="toolbar_toggle_title" for="toolsCheck" id="toolsCheckLabel" class="bitsy-menu-label">
 						<span class="bitsy_icon">tool</span>
 						<span id="toolsCheckLabelText" class="localize tools_label">tools</span>
 					</label>
 
 					<!-- play -->
 					<input type="checkbox" id="playModeCheck" onclick="togglePlayMode(event);" autocomplete="off" />
-					<label title="play / pause game" for="playModeCheck" class="bitsy-menu-label">
+					<label data-localize-title="play_pause_game_title" for="playModeCheck" class="bitsy-menu-label">
 						<span id="playModeIcon" class="bitsy_icon">play</span>
 						<span id="playModeText" class="localize play_game">play</span> <!-- TODO LOCALIZE: also stop_game -->
 					</label>
@@ -118,78 +118,78 @@
 			<div id="toolsPanel">
 
 				<input type="checkbox" value="aboutPanel" id="aboutCheck" onclick="togglePanelAnimated(event);" autocomplete="off" checked/>
-				<label title="show / hide about window" for="aboutCheck">
+				<label data-localize-title="about_panel_toggle_title" for="aboutCheck">
 					<span class="bitsy_icon icon_space_right">about</span>
 					<span class="localize about_tool_name">about</span>
 				</label>
 
 				<input type="checkbox" value="exitsPanel" id="exitsCheck" onclick="togglePanelAnimated(event);" autocomplete="off" />
-				<label title="show / hide exits & endings window" for="exitsCheck">
+				<label data-localize-title="exits_panel_toggle_title" for="exitsCheck">
 					<span class="bitsy_icon icon_space_right">exits_endings</span>
 					<span class="localize marker_tool_name">exits & endings</span>
 				</label>
 
 				<input type="checkbox" value="paintPanel" id="paintCheck" onclick="togglePanelAnimated(event);" autocomplete="off" checked/>
-				<label title="show / hide paint window" for="paintCheck">
+				<label data-localize-title="paint_panel_toggle_title" for="paintCheck">
 					<span class="bitsy_icon icon_space_right">paint</span>
 					<span class="localize paint_tool_name">paint</span>
 				</label>
 
 				<input type="checkbox" value="colorsPanel" id="colorsCheck" onclick="togglePanelAnimated(event);" autocomplete="off" checked/>
-				<label title="show / hide color palette window" for="colorsCheck">
+				<label data-localize-title="colors_panel_toggle_title" for="colorsCheck">
 					<span class="bitsy_icon icon_space_right">colors</span>
 					<span class="localize palette_tool_name">colors</span>
 				</label>
 
 				<input type="checkbox" value="dialogPanel" id="dialogCheck" onclick="togglePanelAnimated(event);" autocomplete="off" checked/>
-				<label title="show / hide dialog window" for="dialogCheck">
+				<label data-localize-title="dialog_panel_toggle_title" for="dialogCheck">
 					<span class="bitsy_icon icon_space_right">dialog</span>
 					<span class="localize dialog_tool_name">dialog</span>
 				</label>
 
 				<input type="checkbox" value="findPanel" id="findCheck" onclick="togglePanelAnimated(event);" autocomplete="off" />
-				<label title="show / hide find window" for="findCheck">
+				<label data-localize-title="find_panel_toggle_title" for="findCheck">
 					<span class="bitsy_icon icon_space_right">search</span>
 					<span class="localize find_tool_name">find</span>
 				</label>
 
 				<input type="checkbox" value="inventoryPanel" id="inventoryCheck" onclick="togglePanelAnimated(event);" autocomplete="off" checked/>
-				<label title="show / hide inventory window" for="inventoryCheck">
+				<label data-localize-title="inventory_panel_toggle_title" for="inventoryCheck">
 					<span class="bitsy_icon icon_space_right">item</span>
 					<span class="localize inventory_tool_name">inventory</span>
 				</label>
-				
+
 				<input type="checkbox" value="downloadPanel" id="downloadCheck" onclick="togglePanelAnimated(event);" autocomplete="off" checked/>
-				<label title="show / hide download window" for="downloadCheck">
+				<label data-localize-title="download_panel_toggle_title" for="downloadCheck">
 					<span class="bitsy_icon icon_space_right">file</span>
 					<span class="localize download_tool_name">download</span>
 				</label>
-				
+
 				<input type="checkbox" value="gifPanel" id="gifCheck" onclick="togglePanelAnimated(event);" autocomplete="off" />
-				<label title="show / hide gif recording window" for="gifCheck">
+				<label data-localize-title="gif_panel_toggle_title" for="gifCheck">
 					<span class="bitsy_icon icon_space_right">record</span>
 					<span class="localize gif_tool_name">record gif</span>
 				</label>
-				
+
 				<input type="checkbox" value="dataPanel" onclick="togglePanelAnimated(event);" id="dataCheck" autocomplete="off" />
-				<label title="show / hide game data window" for="dataCheck">
+				<label data-localize-title="data_panel_toggle_title" for="dataCheck">
 					<span class="bitsy_icon icon_space_right">game_data</span>
 					<span class="localize data_tool_name">game data</span>
 				</label>
 
 				<input type="checkbox" value="themePanel" onclick="togglePanelAnimated(event);" id="themeCheck" autocomplete="off" />
-				<label title="show / hide theme window" for="themeCheck">
+				<label data-localize-title="theme_panel_toggle_title" for="themeCheck">
 					<span class="bitsy_icon icon_space_right">rainbow</span>
 					<span class="localize theme_tool_name">theme</span>
 				</label>
 
 				<input type="checkbox" value="settingsPanel" onclick="togglePanelAnimated(event);" id="settingsCheck" autocomplete="off" />
-				<label title="show / hide settings window" for="settingsCheck">
+				<label data-localize-title="settings_panel_toggle_title" for="settingsCheck">
 					<span class="bitsy_icon icon_space_right">settings</span>
 					<span class="localize settings_tool_name">settings</span>
 				</label>
 
-				<button id="resetGameButton" title="reset everything and start new game" onclick="newGameDialog();">
+				<button id="resetGameButton" data-localize-title="reset_game_title" onclick="newGameDialog();">
 					<span class="bitsy_icon">new_game</span>
 					<span class="localize reset_game">new game</span>
 				</button>
@@ -233,12 +233,12 @@
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">about</span>
 
-						<span class="bitsy-card-title" title="about window" onmousedown="grabCard(event);">
+						<span class="bitsy-card-title" data-localize-title="about_panel_title" onmousedown="grabCard(event);">
 							<span class="localize about_tool_title">about bitsy</span>
 							 <span class="curVersionLabel"></span>
 						</span>
 
-						<button title="minimize about window" onclick="hidePanel('aboutPanel');">
+						<button data-localize-title="minimize_about_title" onclick="hidePanel('aboutPanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
@@ -253,30 +253,30 @@
 						</p>
 
 						<p>
-							- 
+							-
 							<a target="_blank" href="https://www.twitter.com/adamledoux">
 								<span class="localize about10_link_twitter">adam</span>
 							</a>
 						</p>
 
 						<p>
-							getting started: <br/>
-							<a target="_blank" href="https://www.shimmerwitch.space/bitsyTutorial.html">tutorial</a>
+							<span class="localize about_getting_started">getting started:</span> <br/>
+							<a target="_blank" href="https://www.shimmerwitch.space/bitsyTutorial.html"><span class="localize about_tutorial_link">tutorial</span></a>
 						</p>
 
 						<p>
-							community: <br/>
-							<a target="_blank" href="https://itch.io/games/made-with-bitsy">made with bitsy</a> |
-							<a target="_blank" href="https://discordapp.com/invite/9rAjhtr">discord server</a> |
-							<a target="_blank" href="https://ledoux.itch.io/bitsy/community">itch.io forum</a>
+							<span class="localize about_community">community:</span> <br/>
+							<a target="_blank" href="https://itch.io/games/made-with-bitsy"><span class="localize about_made_with_bitsy">made with bitsy</span></a> |
+							<a target="_blank" href="https://discordapp.com/invite/9rAjhtr"><span class="localize about_discord_server">discord server</span></a> |
+							<a target="_blank" href="https://ledoux.itch.io/bitsy/community"><span class="localize about_itchio_forum">itch.io forum</span></a>
 						</p>
 
 						<p>
-							development: <br/>
-							<a target="_blank" href="https://github.com/le-doux/bitsy/blob/master/CREDITS.md">contributors</a> |
-							<a target="_blank" href="https://github.com/le-doux/bitsy/blob/master/VERSION_NOTES.txt">version notes</a> |
-							<a target="_blank" href="https://github.com/le-doux/bitsy/issues">report a bug</a> |
-							<a target="_blank" href="https://github.com/le-doux/bitsy">source code</a>
+							<span class="localize about_development">development:</span> <br/>
+							<a target="_blank" href="https://github.com/le-doux/bitsy/blob/master/CREDITS.md"><span class="localize about_contributors">contributors</span></a> |
+							<a target="_blank" href="https://github.com/le-doux/bitsy/blob/master/VERSION_NOTES.txt"><span class="localize about_version_notes">version notes</span></a> |
+							<a target="_blank" href="https://github.com/le-doux/bitsy/issues"><span class="localize about_report_bug">report a bug</span></a> |
+							<a target="_blank" href="https://github.com/le-doux/bitsy"><span class="localize about_source_code">source code</span></a>
 						</p>
 					</div>
 				</div>
@@ -285,11 +285,11 @@
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">exits_endings</span>
 
-						<span class="bitsy-card-title" title="exits & endings window" onmousedown="grabCard(event);">
+						<span class="bitsy-card-title" data-localize-title="exits_panel_title" onmousedown="grabCard(event);">
 							<span class="localize marker_tool_name">exits & endings</span>
 						</span>
 
-						<button title="minimize exits & endings window" onclick="hidePanel('exitsPanel');">
+						<button data-localize-title="minimize_exits_title" onclick="hidePanel('exitsPanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
@@ -300,51 +300,51 @@
 							<input type="text" id="markerName" size="5" readonly></input>
 
 							<!-- prev / next -->
-							<button title="previous" class="color0" onclick="prevMarker();">
+							<button data-localize-title="nav_previous_title" class="color0" onclick="prevMarker();">
 								<span class="bitsy_icon">previous</span>
 							</button>
-							<button title="next" class="color0" onclick="nextMarker();">
+							<button data-localize-title="nav_next_title" class="color0" onclick="nextMarker();">
 								<span class="bitsy_icon">next</span>
 							</button>
 
-							<!-- add / copy / dlete -->
-							<button title="add exit or ending" class="color0" onclick="startAddMarker();">
+							<!-- add / copy / delete -->
+							<button data-localize-title="add_marker_title" class="color0" onclick="startAddMarker();">
 								<span class="bitsy_icon">add</span>
 							</button>
 
-							<button title="duplicate exit or ending" class="color0" onclick="duplicateMarker();">
+							<button data-localize-title="duplicate_marker_title" class="color0" onclick="duplicateMarker();">
 								<span class="bitsy_icon">copy</span>
 							</button>
 
-							<button title="delete" class="color0" onclick="deleteMarker();">
+							<button data-localize-title="delete_title" class="color0" onclick="deleteMarker();">
 								<span class="bitsy_icon">delete</span>
 							</button>
 						</div>
 						<!-- todo : move style elsewhere -->
 						<div id="addMarkerOptions" class="controlBox" style="display: flex; flex-direction: column; min-width: 300px">
-							<button title="add two-way exit" class="bitsy-menu-label" onclick="newExit();">
+							<button data-localize-title="add_exit_title" class="bitsy-menu-label" onclick="newExit();">
 								<span class="bitsy_icon">add</span>
 								<span id="addExitText" class="localize exit_label">exit</span>
 							</button>
-							<button title="add one-way exit" class="bitsy-menu-label" onclick="newExitOneWay();">
+							<button data-localize-title="add_exit_one_way_title" class="bitsy-menu-label" onclick="newExitOneWay();">
 								<span class="bitsy_icon">add</span>
-								<span id="addExitText" class="localize exit_one_way_label">one-way exit</span>
+								<span id="addExitOneWayText" class="localize exit_one_way_label">one-way exit</span>
 							</button>
-							<button title="add ending" class="bitsy-menu-label" onclick="newEnding();">
+							<button data-localize-title="add_ending_title" class="bitsy-menu-label" onclick="newEnding();">
 								<span class="bitsy_icon">add</span>
 								<span class="localize ending_label">ending</span>
 							</button>
 							<!-- TODO : need a general cancel button style -->
-							<button title="cancel" class="cancelButton bitsy-menu-label" onclick="cancelAddMarker();">
+							<button data-localize-title="cancel_title" class="cancelButton bitsy-menu-label" onclick="cancelAddMarker();">
 								<span class="bitsy_icon">cancel</span>
 								<span class="localize action_cancel">cancel</span>
 							</button>
 						</div>
 						<div id="noMarkerMessage" class="controlBox">
 							<div style="display: flex; flex-direction: row; margin-bottom: 10px;">
-								<span id="spacer" style="flex-grow: 1;"></span>
+								<span id="spacerLeft" style="flex-grow: 1;"></span>
 								<img src="image/cat.svg" height="64px" width="64px" />
-								<span id="spacer" style="flex-grow: 1;"></span>
+								<span id="spacerRight" style="flex-grow: 1;"></span>
 							</div>
 							<span class="localize marker_tool_empty">There are no exits or endings in this room yet! You can add one with this tool. :)</span>
 						</div>
@@ -355,52 +355,52 @@
 									<span id="markerName1">marker 1</span>
 								</span>
 
-								<canvas id="markerCanvas1" title="location of marker (click to go to room)" onclick="selectMarkerRoom1();" style="margin-top: 5px; image-rendering: pixelated;"></canvas>
+								<canvas id="markerCanvas1" data-localize-title="marker_canvas_title" onclick="selectMarkerRoom1();" style="margin-top: 5px; image-rendering: pixelated;"></canvas>
 
 								<div class="markerPosControl">
-									<div class="markerCoordinatesHolder" title="marker coordinates">
+									<div class="markerCoordinatesHolder" data-localize-title="marker_coordinates_title">
 										<span id="textMarkerPos1">room 0 (0,0)</span>
 										<span id="textMoveMessage1">
 											<i class="localize marker_move_click">click in room</i>
 										</span>
 									</div>
-									<div title="marker controls">
+									<div data-localize-title="marker_controls_title">
 										<input type="checkbox" id="toggleMoveMarker1" onclick="toggleMoveMarker1(event);" autocomplete="off" />
-										<label for="toggleMoveMarker1" title="click to place marker in current room">
+										<label for="toggleMoveMarker1" data-localize-title="place_marker_title">
 											<span id="toggleMoveMarkerIcon1" class="bitsy_icon">set_exit_location</span>
 											<span class="localize marker_move">move</span>
 										</label>
 
 										<input type="checkbox" id="toggleEditMarker1" autocomplete="off" />
-										<label for="toggleEditMarker1" title="edit coordinates">
+										<label for="toggleEditMarker1" data-localize-title="edit_coordinates_title">
 											<span class="bitsy_icon">edit</span>
 										</label>
 
 										<span id="exitOptionsToggle1">
 											<input type="checkbox" id="exitOptionsToggleCheck1" onclick="toggleExitOptions(0, event.target.checked);" autocomplete="off" />
-											<label title="show / hide exit options" for="exitOptionsToggleCheck1">
+											<label data-localize-title="exit_options_toggle_title" for="exitOptionsToggleCheck1">
 												<span class="bitsy_icon">settings</span>
 											</label>
 										</span>
 									</div>
-									<div id="editControlsMarker1" title="edit coordinates" style="margin-top: 5px; display: none;">
+									<div id="editControlsMarker1" data-localize-title="edit_coordinates_title" style="margin-top: 5px; display: none;">
 										<div>
-											<span class="localize room_label">room</span>: 
+											<span class="localize room_label">room</span>:
 											<select id="editRoomMarker1"></select>
 										</div>
 										<div>
-											<span class="localize axis_x_label">x</span>: 
+											<span class="localize axis_x_label">x</span>:
 											<input id="editPosXMarker1" type="number" min="0" max="15" style="width:6ch;"></input>
 										</div>
 										<div>
-											<span class="localize axis_y_label">y</span>: 
+											<span class="localize axis_y_label">y</span>:
 											<input id="editPosYMarker1" type="number" min="0" max="15" style="width:6ch;"></input>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div id="markerLinkControl">
-								<button title="change exit direction" onclick="changeExitDirection();">
+								<button data-localize-title="change_exit_direction_title" onclick="changeExitDirection();">
 									<span id="exitDirectionIcon" class="bitsy_icon">exit_one_way</span>
 								</button>
 							</div>
@@ -410,52 +410,52 @@
 									<span id="markerName2">marker 2</span>
 								</span>
 
-								<canvas id="markerCanvas2" title="location of marker (click to go to room)" onclick="selectMarkerRoom2();" style="margin-top: 5px; image-rendering: pixelated;"></canvas>
+								<canvas id="markerCanvas2" data-localize-title="marker_canvas_title" onclick="selectMarkerRoom2();" style="margin-top: 5px; image-rendering: pixelated;"></canvas>
 
 								<div class="markerPosControl">
-									<div class="markerCoordinatesHolder" title="marker coordinates">
+									<div class="markerCoordinatesHolder" data-localize-title="marker_coordinates_title">
 										<span id="textMarkerPos2">room 0 (0,0)</span>
 										<span id="textMoveMessage2">
 											<i class="localize marker_move_click">click in room</i>
 										</span>
 									</div>
-									<div title="marker controls">
+									<div data-localize-title="marker_controls_title">
 										<input type="checkbox" id="toggleMoveMarker2" onclick="toggleMoveMarker2(event);" autocomplete="off" />
-										<label for="toggleMoveMarker2" title="click to move marker">
+										<label for="toggleMoveMarker2" data-localize-title="move_marker_title">
 											<span id="toggleMoveMarkerIcon2" class="bitsy_icon">set_exit_location</span>
 											<span class="localize marker_move">move</span>
 										</label>
 
 										<input type="checkbox" id="toggleEditMarker2" autocomplete="off" />
-										<label for="toggleEditMarker2" title="edit coordinates">
+										<label for="toggleEditMarker2" data-localize-title="edit_coordinates_title">
 											<span class="bitsy_icon">edit</span>
 										</label>
 
 										<span id="exitOptionsToggle2">
 											<input type="checkbox" id="exitOptionsToggleCheck2" onclick="toggleExitOptions(1, event.target.checked);" autocomplete="off" />
-											<label title="show / hide exit options" for="exitOptionsToggleCheck2">
+											<label data-localize-title="exit_options_toggle_title" for="exitOptionsToggleCheck2">
 												<span class="bitsy_icon">settings</span>
 											</label>
 										</span>
 
 										<span id="exitOptionsToggle1_alt">
 											<input type="checkbox" id="exitOptionsToggleCheck1_alt" onclick="toggleExitOptions(0, event.target.checked);" autocomplete="off" />
-											<label title="show / hide exit options" for="exitOptionsToggleCheck1_alt">
+											<label data-localize-title="exit_options_toggle_title" for="exitOptionsToggleCheck1_alt">
 												<span class="bitsy_icon">settings</span>
 											</label>
 										</span>
 									</div>
-									<div id="editControlsMarker2" title="edit coordinates" style="margin-top: 5px; display: none;">
+									<div id="editControlsMarker2" data-localize-title="edit_coordinates_title" style="margin-top: 5px; display: none;">
 										<div>
-											<span class="localize room_label">room</span>: 
+											<span class="localize room_label">room</span>:
 											<select id="editRoomMarker2"></select>
 										</div>
 										<div>
-											<span class="localize axis_x_label">x</span>: 
+											<span class="localize axis_x_label">x</span>:
 											<input id="editPosXMarker2" type="number" min="0" max="15" style="width:6ch;"></input>
 										</div>
 										<div>
-											<span class="localize axis_y_label">y</span>: 
+											<span class="localize axis_y_label">y</span>:
 											<input id="editPosYMarker2" type="number" min="0" max="15" style="width:6ch;"></input>
 										</div>
 									</div>
@@ -473,19 +473,19 @@
 									<span class="localize exit_options">exit options</span>:
 								</div>
 
-								<div title="select transition effect" class="controlBox">
+								<div data-localize-title="select_transition_title" class="controlBox">
 									<span class="bitsy_icon">transition_effect</span>
-									<span class="localize exit_transition_label">transition effect</span>: 
+									<span class="localize exit_transition_label">transition effect</span>:
 									<select id="exitTransitionEffectSelect" onchange="onChangeExitTransitionEffect(event.target.value, 0);">
-										<option value="none">none</option>
-										<option value="fade_w">fade (white)</option>
-										<option value="fade_b">fade (black)</option>
-										<option value="wave">wave</option>
-										<option value="tunnel">tunnel</option>
-										<option value="slide_u">slide up</option>
-										<option value="slide_d">slide down</option>
-										<option value="slide_l">slide left</option>
-										<option value="slide_r">slide right</option>
+										<option value="none" class="localize transition_none">none</option>
+										<option value="fade_w" class="localize transition_fade_w">fade (white)</option>
+										<option value="fade_b" class="localize transition_fade_b">fade (black)</option>
+										<option value="wave" class="localize transition_wave">wave</option>
+										<option value="tunnel" class="localize transition_tunnel">tunnel</option>
+										<option value="slide_u" class="localize transition_slide_u">slide up</option>
+										<option value="slide_d" class="localize transition_slide_d">slide down</option>
+										<option value="slide_l" class="localize transition_slide_l">slide left</option>
+										<option value="slide_r" class="localize transition_slide_r">slide right</option>
 									</select>
 								</div>
 
@@ -498,19 +498,19 @@
 									<span class="localize return_exit_options">return exit options</span>:
 								</div>
 
-								<div title="select transition effect" class="controlBox">
+								<div data-localize-title="select_transition_title" class="controlBox">
 									<span class="bitsy_icon">transition_effect</span>
-									<span class="localize exit_transition_label">transition effect</span>: 
+									<span class="localize exit_transition_label">transition effect</span>:
 									<select id="returnExitTransitionEffectSelect" onchange="onChangeExitTransitionEffect(event.target.value, 1);">
-										<option value="none">none</option>
-										<option value="fade_w">fade (white)</option>
-										<option value="fade_b">fade (black)</option>
-										<option value="wave">wave</option>
-										<option value="tunnel">tunnel</option>
-										<option value="slide_u">slide up</option>
-										<option value="slide_d">slide down</option>
-										<option value="slide_l">slide left</option>
-										<option value="slide_r">slide right</option>
+										<option value="none" class="localize transition_none">none</option>
+										<option value="fade_w" class="localize transition_fade_w">fade (white)</option>
+										<option value="fade_b" class="localize transition_fade_b">fade (black)</option>
+										<option value="wave" class="localize transition_wave">wave</option>
+										<option value="tunnel" class="localize transition_tunnel">tunnel</option>
+										<option value="slide_u" class="localize transition_slide_u">slide up</option>
+										<option value="slide_d" class="localize transition_slide_d">slide down</option>
+										<option value="slide_l" class="localize transition_slide_l">slide left</option>
+										<option value="slide_r" class="localize transition_slide_r">slide right</option>
 									</select>
 								</div>
 
@@ -525,11 +525,11 @@
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">paint</span>
 
-						<span class="bitsy-card-title" title="paint window" onmousedown="grabCard(event);">
+						<span class="bitsy-card-title" data-localize-title="paint_panel_title" onmousedown="grabCard(event);">
 							<span class="localize paint_tool_name">paint</span>
 						</span>
 
-						<button title="minimize paint window" onclick="hidePanel('paintPanel');">
+						<button data-localize-title="minimize_paint_title" onclick="hidePanel('paintPanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
@@ -537,59 +537,59 @@
 					<div class="bitsy-card-main">
 						<form id="paintModeRadio" class="bitsy-menu-group">
 							<input type="radio" name="paint mode" value="avatar" onclick="on_paint_avatar();" id="paintOptionAvatar" checked>
-							<label title="edit the avatar: the player's character" for="paintOptionAvatar" class="left">
+							<label data-localize-title="paint_avatar_title" for="paintOptionAvatar" class="left">
 								<span class="bitsy_icon icon_space_right">avatar</span>
 								<span class="localize avatar_label">avatar</span>
 							</label>
 
 							<input type="radio" name="paint mode" value="tile" onclick="on_paint_tile();" id="paintOptionTile">
-							<label title="edit tiles: pieces of scenery" for="paintOptionTile" class="middle">
+							<label data-localize-title="paint_tile_title" for="paintOptionTile" class="middle">
 								<span class="bitsy_icon icon_space_right">tile</span>
 								<span class="localize tile_label">tile</span>
 							</label>
 
 							<input type="radio" name="paint mode" value="sprite" onclick="on_paint_sprite();" id="paintOptionSprite">
-							<label title="edit sprites: non-player characters and interactive objects" for="paintOptionSprite" class="middle">
+							<label data-localize-title="paint_sprite_title" for="paintOptionSprite" class="middle">
 								<span class="bitsy_icon icon_space_right">sprite</span>
 								<span class="localize sprite_label">sprite</span>
 							</label>
 
 							<input type="radio" name="paint mode" value="item" onclick="on_paint_item();" id="paintOptionItem">
-							<label title="edit items: things the player can pick up" for="paintOptionItem" class="right">
+							<label data-localize-title="paint_item_title" for="paintOptionItem" class="right">
 								<span class="bitsy_icon icon_space_right">item</span>
 								<span class="localize item_label">item</span>
 							</label>
-							
+
 						</form>
 
 						<div id="paintNavigationControls" class="navControl">
 							<!-- name -->
-							<input title="a name to refer to this drawing" type="text" id="drawingName" class="textInputField" onchange="on_drawing_name_change();"></input>
+							<input data-localize-title="drawing_name_title" type="text" id="drawingName" class="textInputField" onchange="on_drawing_name_change();"></input>
 
 							<!-- prev / next -->
-							<button title="previous drawing" class="color0 disableForAvatar" onclick="prev();">
+							<button data-localize-title="prev_drawing_title" class="color0 disableForAvatar" onclick="prev();">
 								<span class="bitsy_icon">previous</span>
 							</button>
 
-							<button title="next drawing" class="color0 disableForAvatar" onclick="next();">
+							<button data-localize-title="next_drawing_title" class="color0 disableForAvatar" onclick="next();">
 								<span class="bitsy_icon">next</span>
 							</button>
 
 							<!-- add / copy / delete -->
-							<button title="add drawing" class="color0 disableForAvatar" onclick="newDrawing();">
+							<button data-localize-title="add_drawing_title" class="color0 disableForAvatar" onclick="newDrawing();">
 								<span class="bitsy_icon">add</span>
 							</button>
 
-							<button title="duplicate drawing" class="color0 disableForAvatar" onclick="duplicateDrawing();">
+							<button data-localize-title="duplicate_drawing_title" class="color0 disableForAvatar" onclick="duplicateDrawing();">
 								<span class="bitsy_icon">copy</span>
 							</button>
 
-							<button title="delete drawing" class="color0 disableForAvatar" onclick="deleteDrawing();">
+							<button data-localize-title="delete_drawing_title" class="color0 disableForAvatar" onclick="deleteDrawing();">
 								<span class="bitsy_icon">delete</span>
 							</button>
 
 							<!-- find -->
-							<button title="open find tool: drawings" onclick="openFindToolWithCurrentPaintCategory();">
+							<button data-localize-title="find_drawings_title" onclick="openFindToolWithCurrentPaintCategory();">
 								<span class="bitsy_icon">search</span>
 							</button>
 						</div>
@@ -597,46 +597,46 @@
 						<canvas id="paint"></canvas>
 
 						<div id="paintTools" class="buttonGroup">
-							<button id="paintTool_brush" title="brush" class="color0 paint-tool-active" onclick="paintTool.setDrawTool('brush');">
+							<button id="paintTool_brush" data-localize-title="brush_title" class="color0 paint-tool-active" onclick="paintTool.setDrawTool('brush');">
 								<span class="bitsy_icon">paint</span>
 							</button>
-							<button id="paintTool_eraser" title="eraser" class="color0" onclick="paintTool.setDrawTool('eraser');">
+							<button id="paintTool_eraser" data-localize-title="eraser_title" class="color0" onclick="paintTool.setDrawTool('eraser');">
 								<span class="bitsy_icon">backspace</span>
 							</button>
-							<button id="paintTool_fill" title="fill" class="color0" onclick="paintTool.setDrawTool('fill');">
+							<button id="paintTool_fill" data-localize-title="fill_title" class="color0" onclick="paintTool.setDrawTool('fill');">
 								<span class="bitsy_icon">colors</span>
 							</button>
-							<button id="paintTool_picker" title="color picker" class="color0" onclick="paintTool.setDrawTool('picker');">
+							<button id="paintTool_picker" data-localize-title="color_picker_tool_title" class="color0" onclick="paintTool.setDrawTool('picker');">
 								<span class="bitsy_icon">eyedropper</span>
 							</button>
-							<button id="paintTool_undo" title="undo (Ctrl+Z)" class="color0" onclick="paintTool.undo();">
+							<button id="paintTool_undo" data-localize-title="undo_title" class="color0" onclick="paintTool.undo();">
 								<span class="bitsy_icon">undo</span>
 							</button>
-							<button id="paintTool_redo" title="redo (Ctrl+Y)" class="color0" onclick="paintTool.redo();">
+							<button id="paintTool_redo" data-localize-title="redo_title" class="color0" onclick="paintTool.redo();">
 								<span class="bitsy_icon">redo</span>
 							</button>
 						</div>
 
                         <div id="paintTransform">
                             <span class="buttonGroup" style="margin-bottom: 5px; margin-right: 3px;">
-                                <button title="nudge left" class="color0" onclick="nudgeDrawing(0);">
+                                <button data-localize-title="nudge_left_title" class="color0" onclick="nudgeDrawing(0);">
                                     <span class="bitsy_icon">previous</span>
                                 </button>
-                                <button title="nudge right" class="color0" onclick="nudgeDrawing(1);">
+                                <button data-localize-title="nudge_right_title" class="color0" onclick="nudgeDrawing(1);">
                                     <span class="bitsy_icon">next</span>
                                 </button>
-                                <button title="nudge up" class="color0" onclick="nudgeDrawing(2);">
+                                <button data-localize-title="nudge_up_title" class="color0" onclick="nudgeDrawing(2);">
                                     <span class="bitsy_icon">arrow_up</span>
                                 </button>
-                                <button title="nudge down" class="color0" onclick="nudgeDrawing(3);">
+                                <button data-localize-title="nudge_down_title" class="color0" onclick="nudgeDrawing(3);">
                                     <span class="bitsy_icon">arrow_down</span>
                                 </button>
                             </span>
                             <span class="buttonGroup" style="margin-bottom: 5px; margin-right: 3px;">
-                                <button title="rotate clockwize" class="color0" onclick="rotateDrawing(1);">
+                                <button data-localize-title="rotate_cw_title" class="color0" onclick="rotateDrawing(1);">
                                     <span class="bitsy_icon">rotate_right</span>
                                 </button>
-                                <button title="rotate counter-clockwize" class="color0" onclick="rotateDrawing(0);">
+                                <button data-localize-title="rotate_ccw_title" class="color0" onclick="rotateDrawing(0);">
                                     <span class="bitsy_icon">rotate_left</span>
                                 </button>
                             </span>
@@ -644,24 +644,24 @@
 
                         <div id="paintMirror">
                             <span class="buttonGroup" style="margin-bottom: 5px; margin-right: 3px;">
-                                <button title="mirror to right" class="color0" onclick="mirrorDrawing(1);">
+                                <button data-localize-title="mirror_right_title" class="color0" onclick="mirrorDrawing(1);">
                                     <span class="bitsy_icon">mirror_right</span>
                                 </button>
-                                <button title="mirror to left" class="color0" onclick="mirrorDrawing(0);">
+                                <button data-localize-title="mirror_left_title" class="color0" onclick="mirrorDrawing(0);">
                                     <span class="bitsy_icon">mirror_left</span>
                                 </button>
-                                <button title="mirror to down" class="color0" onclick="mirrorDrawing(3);">
+                                <button data-localize-title="mirror_down_title" class="color0" onclick="mirrorDrawing(3);">
                                     <span class="bitsy_icon">mirror_down</span>
                                 </button>
-                                <button title="mirror to up" class="color0" onclick="mirrorDrawing(2);">
+                                <button data-localize-title="mirror_up_title" class="color0" onclick="mirrorDrawing(2);">
                                     <span class="bitsy_icon">mirror_up</span>
                                 </button>
                             </span>
                             <span class="buttonGroup" style="margin-bottom: 5px; margin-right: 3px;">
-                                <button title="horizontal flip" class="color0" onclick="flipDrawing(1);">
+                                <button data-localize-title="flip_horizontal_title" class="color0" onclick="flipDrawing(1);">
                                     <span class="bitsy_icon">flip_horizontal</span>
                                 </button>
-                                <button title="vertical flip" class="color0" onclick="flipDrawing(0);">
+                                <button data-localize-title="flip_vertical_title" class="color0" onclick="flipDrawing(0);">
                                     <span class="bitsy_icon">flip_vertical</span>
                                 </button>
                             </span>
@@ -670,19 +670,19 @@
 						<div id="paintEditMain">
                             <div class="buttonGroup">
                                 <input type="checkbox" id="paintGridCheck" onclick="togglePaintGrid(event);" autocomplete="off" checked />
-                                <label title="show / hide grid" for="paintGridCheck" class="bitsy-menu-label">
+                                <label data-localize-title="grid_toggle_title" for="paintGridCheck" class="bitsy-menu-label">
                                     <span id="paintGridIcon" class="bitsy_icon">visibility</span>
                                     <span class="localize grid_toggle_visible">grid</span>
                                 </label>
-                                <button id="showInventoryButton" title="show inventory" class="bitsy-menu-label" onclick="showPanel('inventoryPanel', 'paintPanel');">
+                                <button id="showInventoryButton" data-localize-title="show_inventory_title" class="bitsy-menu-label" onclick="showPanel('inventoryPanel', 'paintPanel');">
                                     <span class="bitsy_icon">item</span>
                                     <span class="localize inventory_tool_name">inventory</span>
                                 </button>
-                                <button title="import image as new drawing" class="bitsy-menu-label" onclick="openImportModal();">
+                                <button data-localize-title="import_drawing_title" class="bitsy-menu-label" onclick="openImportModal();">
                                     <span class="bitsy_icon">upload</span>
                                     <span class="localize import_pixel_art">import</span>
                                 </button>
-                                <span id="drawingPaintCol" title="paint with this color" class="controlSpan">
+                                <span id="drawingPaintCol" data-localize-title="paint_color_title" class="controlSpan">
                                     <span class="localize brush_color">brush color</span>
                                     <input type="text" id="paintColor" size="3" />
                                 </span>
@@ -691,7 +691,7 @@
 
 						<div id="wall" class="controlBox" style="display:none;">
 							<input type="checkbox" id="wallCheckbox" onchange="on_toggle_wall(event);" autocomplete="off" >
-							<label title="make tile an impassible wall" for="wallCheckbox" class="bitsy-menu-label">
+							<label data-localize-title="wall_toggle_title" for="wallCheckbox" class="bitsy-menu-label">
 								<span id="wallCheckboxIcon" class="bitsy_icon">wall_off</span>
 								<span class="localize wall_toggle">wall</span>
 							</label>
@@ -703,7 +703,7 @@
 						<div id="animationOuter" class="controlBox">
 							<div id="isAnimated">
 								<input type="checkbox" id="animatedCheckbox" onchange="on_toggle_animated();" autocomplete="off" >
-								<label title="add animation to drawing" for="animatedCheckbox">
+								<label data-localize-title="animation_toggle_title" for="animatedCheckbox">
 									<span class="localize animation_title">animation</span>
 									<span id="animatedCheckboxIcon" class="bitsy_icon" style="margin-left: var(--bitsy-space-s);">expand_less</span>
 								</label>
@@ -746,9 +746,9 @@
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">search</span>
 
-						<span class="bitsy-card-title localize find_tool_name" title="find window" onmousedown="grabCard(event);">find</span>
+						<span class="bitsy-card-title localize find_tool_name" data-localize-title="find_panel_title" onmousedown="grabCard(event);">find</span>
 
-						<button title="minimize find window" onclick="hidePanel('findPanel');">
+						<button data-localize-title="minimize_find_title" onclick="hidePanel('findPanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
@@ -761,11 +761,11 @@
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">colors</span>
 
-						<span class="bitsy-card-title" title="color palette window" onmousedown="grabCard(event);">
+						<span class="bitsy-card-title" data-localize-title="colors_panel_title" onmousedown="grabCard(event);">
 							<span class="localize palette_tool_name">colors</span>
 						</span>
 
-						<button title="minimize color palette window" onclick="hidePanel('colorsPanel');">
+						<button data-localize-title="minimize_colors_title" onclick="hidePanel('colorsPanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
@@ -773,29 +773,29 @@
 					<div class="bitsy-card-main">
 						<div class="navControl">
 							<!-- name -->
-							<input type="text" id="paletteName" title="a name to refer to this color palette" class="textInputField" onchange="on_palette_name_change(event);" size="10"></input>
+							<input type="text" id="paletteName" data-localize-title="palette_name_title" class="textInputField" onchange="on_palette_name_change(event);" size="10"></input>
 
 							<!-- prev / next -->
-							<button title="previous color palette" class="color0" onclick="prevPalette();">
+							<button data-localize-title="prev_palette_title" class="color0" onclick="prevPalette();">
 								<span class="bitsy_icon">previous</span>
 							</button>
-							<button title="next color palette" class="color0" onclick="nextPalette();">
+							<button data-localize-title="next_palette_title" class="color0" onclick="nextPalette();">
 								<span class="bitsy_icon">next</span>
 							</button>
 
 							<!-- add / copy / delete -->
-							<button title="add new color palette" class="color0" onclick="newPalette();">
+							<button data-localize-title="add_palette_title" class="color0" onclick="newPalette();">
 								<span class="bitsy_icon">add</span>
 							</button>
-							<button title="duplicate palette" class="color0" onclick="duplicatePalette();">
+							<button data-localize-title="duplicate_palette_title" class="color0" onclick="duplicatePalette();">
 								<span class="bitsy_icon">copy</span>
 							</button>
-							<button title="delete palette" class="color0" onclick="deletePalette();">
+							<button data-localize-title="delete_palette_title" class="color0" onclick="deletePalette();">
 								<span class="bitsy_icon">delete</span>
 							</button>
 
 							<!-- find -->
-							<button title="open find tool: colors" onclick="openFindTool('PAL', 'colorsPanel');">
+							<button data-localize-title="find_colors_title" onclick="openFindTool('PAL', 'colorsPanel');">
 								<span class="bitsy_icon">search</span>
 							</button>
 						</div>
@@ -805,10 +805,10 @@
                                     <form id="colorPaletteForm">
                                     <span id="colorPaletteFormInner"></span>
                                     <div id="colorPaletteAdd" style="display:inline-block;">
-                                        <button id="addColorButton" title="add color" onclick="addColor(); return false;">
+                                        <button id="addColorButton" data-localize-title="add_color_title" onclick="addColor(); return false;">
                                             <span class="bitsy_icon">add</span>
                                         </button>
-                                        <button id="removeColorButton" title="delete color" style="display:none;" onclick="removeColor(); return false;">
+                                        <button id="removeColorButton" data-localize-title="delete_color_title" style="display:none;" onclick="removeColor(); return false;">
                                             <span class="bitsy_icon">delete</span>
                                         </button>
                                     </div>
@@ -816,14 +816,14 @@
                              </div>
                         </div>
 
-						<div id="colorPicker" title="color picker">
-							<canvas id="colorPickerWheel"></canvas>
-							<canvas id="colorPickerSelect" title="color picker wheel"></canvas>
-							<div id="colorPickerSliderBg" title="color picker darkness / lightness slider">
-								<div id="colorPickerSliderThumb"></div>
+							<div id="colorPicker" data-localize-title="color_picker_title">
+								<canvas id="colorPickerWheel"></canvas>
+								<canvas id="colorPickerSelect" data-localize-title="color_picker_wheel_title"></canvas>
+								<div id="colorPickerSliderBg" data-localize-title="color_picker_slider_title">
+									<div id="colorPickerSliderThumb"></div>
+								</div>
+								<input id="colorPickerHexText" class="textInputField" data-localize-title="color_picker_hex_title" type="text" />
 							</div>
-							<input id="colorPickerHexText" class="textInputField" title="color picker hex code" type="text" />
-						</div>
 					</div>
 				</div>
 
@@ -831,11 +831,11 @@
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">dialog</span>
 
-						<span class="bitsy-card-title" title="dialog window" onmousedown="grabCard(event);">
+						<span class="bitsy-card-title" data-localize-title="dialog_panel_title" onmousedown="grabCard(event);">
 							<span class="localize dialog_tool_name">dialog</span>
 						</span>
 
-						<button title="minimize dialog window" onclick="hidePanel('dialogPanel');">
+						<button data-localize-title="minimize_dialog_title" onclick="hidePanel('dialogPanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
@@ -852,29 +852,29 @@
 								</label> --> <!-- TODO LOCALIZE : other state? dialog_stop_preview -->
 
 								<!-- name -->
-								<input type="text" id="dialogName" title="a name to refer to this dialog" class="textInputField" onchange="onDialogNameChange(event);" size="10"></input>
+								<input type="text" id="dialogName" data-localize-title="dialog_name_title" class="textInputField" onchange="onDialogNameChange(event);" size="10"></input>
 
 								<!-- prev / next -->
-								<button title="previous dialog" class="color0" onclick="prevDialog();">
+								<button data-localize-title="prev_dialog_title" class="color0" onclick="prevDialog();">
 									<span class="bitsy_icon">previous</span>
 								</button>
-								<button title="next dialog" class="color0" onclick="nextDialog();">
+								<button data-localize-title="next_dialog_title" class="color0" onclick="nextDialog();">
 									<span class="bitsy_icon">next</span>
 								</button>
 
 								<!-- add / copy / delete -->
-								<button title="add new dialog" class="color0" onclick="addNewDialog();">
+								<button data-localize-title="add_dialog_title" class="color0" onclick="addNewDialog();">
 									<span class="bitsy_icon">add</span>
 								</button>
-								<button title="duplicate dialog" class="color0" onclick="duplicateDialog();">
+								<button data-localize-title="duplicate_dialog_title" class="color0" onclick="duplicateDialog();">
 									<span class="bitsy_icon">copy</span>
 								</button>
-								<button id="deleteDialogButton" title="delete dialog" class="color0" onclick="deleteDialog();">
+								<button id="deleteDialogButton" data-localize-title="delete_dialog_title" class="color0" onclick="deleteDialog();">
 									<span class="bitsy_icon">delete</span>
 								</button>
 
 								<!-- find -->
-								<button title="open find tool: dialog" onclick="openFindTool('DLG', 'dialogPanel');">
+								<button data-localize-title="find_dialog_title" onclick="openFindTool('DLG', 'dialogPanel');">
 									<span class="bitsy_icon">search</span>
 								</button>
 							</div>
@@ -884,18 +884,18 @@
 
 							<div id="dialogOptions">
 								<input type="checkbox" id="dialogShowCodeCheck" onclick="toggleDialogCode(event);" autocomplete="off">
-								<label title="show / hide the code for this dialog" for="dialogShowCodeCheck">
+								<label data-localize-title="dialog_code_toggle_title" for="dialogShowCodeCheck">
 									<span class="bitsy_icon">code_edit</span>
-									<span id="dialogToggleCodeShowText" class="localize dialog_show_code">show code</span> 
+									<span id="dialogToggleCodeShowText" class="localize dialog_show_code">show code</span>
 									<span id="dialogToggleCodeHideText" class="localize dialog_hide_code" style="display:none;">hide code</span>
 								</label>
 
 								<input type="checkbox" id="dialogAlwaysShowDrawingCheck" onclick="toggleAlwaysShowDrawingDialog(event);" autocomplete="off" checked>
-								<label title="always show dialog of selected drawing" for="dialogAlwaysShowDrawingCheck">
+								<label data-localize-title="always_show_drawing_dialog_title" for="dialogAlwaysShowDrawingCheck">
 									<!-- TODO : bitsy_icon --- need a special icon for this case -->
 									<span class="bitsy_icon">paint</span>
 									<!-- todo : localize -->
-									<!-- <span id="dialogToggleCodeShowText"></span> --> <!-- TODO ?? --> 
+									<!-- <span id="dialogToggleCodeShowText"></span> --> <!-- TODO ?? -->
 								</label>
 							</div>
 						</div>
@@ -910,11 +910,11 @@
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">item</span>
 
-						<span class="bitsy-card-title" title="inventory window" onmousedown="grabCard(event);">
+						<span class="bitsy-card-title" data-localize-title="inventory_panel_title" onmousedown="grabCard(event);">
 							<span class="localize inventory_tool_name">inventory</span>
 						</span>
 
-						<button title="minimize inventory window" onclick="hidePanel('inventoryPanel');">
+						<button data-localize-title="minimize_inventory_title" onclick="hidePanel('inventoryPanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
@@ -924,12 +924,12 @@
 						<div class="bitsy-menu-group">
 							<form>
 								<input type="radio" name="inventory mode" value="item" onclick="showInventoryItem();" id="inventoryOptionItem" checked>
-								<label title="items: set count of items the player starts with" for="inventoryOptionItem" class="left">
+								<label data-localize-title="inventory_items_title" for="inventoryOptionItem" class="left">
 									<span class="bitsy_icon">item</span>
 									<span class="localize items_label">items</span>
 								</label>
 								<input type="radio" name="inventory mode" value="variable" onclick="showInventoryVariable()" id="inventoryOptionVariable">
-								<label title="variables: set initial values of variables" for="inventoryOptionVariable" class="right">
+								<label data-localize-title="inventory_variables_title" for="inventoryOptionVariable" class="right">
 									<!-- TODO : bitsy_icon -- does this need its own special icon? -->
 									<span class="bitsy_icon">code_edit</span>
 									<span class="localize variables_label">variables</span>
@@ -949,11 +949,11 @@
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">file</span>
 
-						<span class="bitsy-card-title" title="download window" onmousedown="grabCard(event);">
+						<span class="bitsy-card-title" data-localize-title="download_panel_title" onmousedown="grabCard(event);">
 							<span class="localize download_tool_name">download</span>
 						</span>
 
-						<button title="minimize download window" onclick="hidePanel('downloadPanel');">
+						<button data-localize-title="minimize_download_title" onclick="hidePanel('downloadPanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
@@ -962,7 +962,7 @@
 						<div style="margin-bottom: var(--bitsy-space-s);">
 							<span class="localize download_html" style="margin-bottom: var(--bitsy-space-s);">download game as html file:</span>
 							<br>
-							<button title="download game as html file" class="color0" onclick="exportGame();">
+							<button data-localize-title="download_game_button_title" class="color0" onclick="exportGame();">
 								<span class="bitsy_icon">download</span>
 								<span class="localize download_game">download game</span>
 							</button>
@@ -971,23 +971,22 @@
 						<div style="margin-bottom: var(--bitsy-space-s);">
 							<span class="localize import_html" style="margin-bottom: var(--bitsy-space-s);">import game from html file:</span>
 							<br style="margin-bottom: var(--bitsy-space-s);">
-							<label for="importGamePicker" class="filePickerLabel" title="import game from html file on your computer">
+							<label for="importGamePicker" class="filePickerLabel" data-localize-title="import_game_title">
 								<span class="bitsy_icon">upload</span>
 								<span class="localize upload_game">upload game</span>
 							</label>
 							<input type="file" accept=".html" id="importGamePicker" style="display:none;" onchange="importGameFromFile(event);"/>
 						</div>
 
-						<!-- TODO LOCALIZE - word wrap -->
 						<div id="downloadHelp" class="helpMessage" style="display:none;">
-							Note: your browser doesn't support<br>
+							<span class="localize download_help_message">Note: your browser doesn't support<br>
 							direct downloads, so sharing requires<br>
 							some extra steps:<br>
 							- press share <br>
 							- a new tab will open <br>
 							- save that tab <br>
 							- name it "mygame.html" <br>
-							- share your game as a web page!
+							- share your game as a web page!</span>
 						</div>
 					</div>
 				</div>
@@ -996,23 +995,23 @@
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">record</span>
 
-						<span class="bitsy-card-title" title="gif recording window" onmousedown="grabCard(event);">
+						<span class="bitsy-card-title" data-localize-title="gif_panel_title" onmousedown="grabCard(event);">
 							<span class="localize gif_tool_name">record gif</span>
 						</span>
 
-						<button title="minimize gif recording window" onclick="hidePanel('gifPanel');">
+						<button data-localize-title="minimize_gif_title" onclick="hidePanel('gifPanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
 
 					<div class="bitsy-card-main">
 						<div class="bitsy-menu-group">
-							<button title="start recording a gif of your game" class="color0" id="gifStartButton" onclick="startRecordingGif();">
+							<button data-localize-title="gif_start_title" class="color0" id="gifStartButton" onclick="startRecordingGif();">
 								<span class="bitsy_icon">record</span>
 								<span class="localize gif_start">start recording</span>
 							</button>
 
-							<button title="stop recording a gif of your game" class="color0" id="gifStopButton" onclick="stopRecordingGif();" style="display:none;">
+							<button data-localize-title="gif_stop_title" class="color0" id="gifStopButton" onclick="stopRecordingGif();" style="display:none;">
 								<span class="bitsy_icon">record_stop</span>
 								<span class="localize gif_stop">stop recording</span>
 							</button>
@@ -1027,12 +1026,12 @@
 								<span class="localize gif_encoding">encoding...</span> <span id="gifEncodingProgress">0</span>%
 							</span>
 
-							<button title="make screenshot of current room" class="color0" id="gifSnapshotButton" onclick="takeSnapshotGif(event);">
+							<button data-localize-title="gif_snapshot_title" class="color0" id="gifSnapshotButton" onclick="takeSnapshotGif(event);">
 								<span class="bitsy_icon">record_snapshot</span>
 								<span class="localize gif_snapshot">snapshot</span>
 							</button>
 
-							<button title="snapshot mode: square" id="gifSnapshotModeButton" onclick="toggleSnapshotMode();">
+							<button data-localize-title="gif_snapshot_mode_title" id="gifSnapshotModeButton" onclick="toggleSnapshotMode();">
 								<span id="gifSnapshotModeIcon" class="bitsy_icon">pagesize_full</span>
 							</button>
 						</div>
@@ -1044,7 +1043,7 @@
 
 						<div class="bitsy-menu-group">
 							<span class="bitsy_icon icon_space_right">download</span>
-							<a title="download latest gif recording of your game" href="" download="recording.gif" id="gifDownload">
+							<a data-localize-title="gif_download_title" href="" download="recording.gif" id="gifDownload">
 								<span class="localize gif_download">download gif</span>
 							</a>
 						</div>
@@ -1056,33 +1055,32 @@
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">game_data</span>
 
-						<span class="bitsy-card-title" title="game data window" onmousedown="grabCard(event);">
+						<span class="bitsy-card-title" data-localize-title="data_panel_title" onmousedown="grabCard(event);">
 							<span class="localize data_tool_name">game data</span>
 						</span>
 
-						<button title="minimize game data window" onclick="hidePanel('dataPanel');">
+						<button data-localize-title="minimize_data_title" onclick="hidePanel('dataPanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
 
 					<div class="bitsy-card-main">
-						<textarea title="raw text of the bitsy game data file (be careful when editing)" id="game_data" onchange="on_game_data_change();"></textarea>
+						<textarea data-localize-title="game_data_textarea_title" id="game_data" onchange="on_game_data_change();"></textarea>
 						<div class="bitsy-menu-group">
 							<input type="checkbox" id="fontDataCheck" onclick="toggleFontDataVisibility(event);" autocomplete="off" />
-							<label title="show / hide font data (WARNING: can be very slow for large fonts)" for="fontDataCheck" class="bitsy-menu-label">
+							<label data-localize-title="font_data_toggle_title" for="fontDataCheck" class="bitsy-menu-label">
 								<span id="fontDataIcon" class="bitsy_icon">visibility_off</span>
 								<span class="localize font_data_toggle_visible">font data</span>
 							</label>
 
-							<button title="download game data" class="bitsy-menu-label" onclick="exportGameData();">
+							<button data-localize-title="download_data_button_title" class="bitsy-menu-label" onclick="exportGameData();">
 								<span class="bitsy_icon">download</span>
 								<span class="localize download_data">download data</span>
 							</button>
 
-							<label for="importGameDataPicker" class="filePickerLabel" title="import game data from a .bitsy file on your computer">
+							<label for="importGameDataPicker" class="filePickerLabel" data-localize-title="import_data_title">
 								<span class="bitsy_icon">upload</span>
-								<!-- todo: localize -->
-								<span>upload data</span>
+								<span class="localize upload_data">upload data</span>
 							</label>
 							<input type="file" accept=".bitsy" id="importGameDataPicker" style="display: none;" onchange="importGameDataFromFile(event);" />
 						</div>
@@ -1092,10 +1090,10 @@
 				<div id="themePanel" class="bitsy-card bitsy-card-s bitsy-workbench-item" style="display:none;">
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">rainbow</span>
-						<span class="bitsy-card-title" title="theme window" onmousedown="grabCard(event);">
+						<span class="bitsy-card-title" data-localize-title="theme_panel_title" onmousedown="grabCard(event);">
 							<span class="localize theme_tool_name">theme</span>
 						</span>
-						<button title="minimize theme window" onclick="hidePanel('themePanel');">
+						<button data-localize-title="minimize_theme_title" onclick="hidePanel('themePanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
@@ -1106,7 +1104,7 @@
 							</div>
 							<div class="controlBox">
 								<input type="checkbox" id="darkModeCheck" onclick="toggleDarkMode(event);" autocomplete="off" />
-								<label title="toggle dark mode" for="darkModeCheck" class="bitsy-menu-label">
+								<label data-localize-title="dark_mode_toggle_title" for="darkModeCheck" class="bitsy-menu-label">
 									<span class="bitsy_icon icon_space_right">settings</span>
 									<span id="darkModeLabel" class="localize dark_mode">dark mode</span>
 								</label>
@@ -1115,11 +1113,11 @@
 								<div style="display:flex; gap:var(--bitsy-space-m); align-items:center;">
 									<label style="display:flex; flex-direction:column; align-items:center; gap:var(--bitsy-space-s); font-size:80%;">
 										<span class="localize tint_editing">editing</span>
-										<input type="color" id="editTintInput" value="#6767b2" oninput="onEditTintChange(event);" title="tint color while editing" />
+										<input type="color" id="editTintInput" value="#6767b2" oninput="onEditTintChange(event);" data-localize-title="tint_editing_title" />
 									</label>
 									<label style="display:flex; flex-direction:column; align-items:center; gap:var(--bitsy-space-s); font-size:80%;">
 										<span class="localize tint_playing">playing</span>
-										<input type="color" id="playTintInput" value="#6767b2" oninput="onPlayTintChange(event);" title="tint color while playing" />
+										<input type="color" id="playTintInput" value="#6767b2" oninput="onPlayTintChange(event);" data-localize-title="tint_playing_title" />
 									</label>
 								</div>
 							</div>
@@ -1131,11 +1129,11 @@
 					<div class="bitsy-card-titlebar">
 						<span class="bitsy_icon">settings</span>
 
-						<span class="bitsy-card-title" title="settings window" onmousedown="grabCard(event);">
+						<span class="bitsy-card-title" data-localize-title="settings_panel_title" onmousedown="grabCard(event);">
 							<span class="localize settings_tool_name">settings</span>
 						</span>
 
-						<button title="minimize settings window" onclick="hidePanel('settingsPanel');">
+						<button data-localize-title="minimize_settings_title" onclick="hidePanel('settingsPanel');">
 							<span class="bitsy_icon">close</span>
 						</button>
 					</div>
@@ -1163,7 +1161,7 @@
 									<option value="unicode_european_large" class="localize font_unicode_european_large">Unicode European Large</option>
 									<option value="unicode_asian" class="localize font_unicode_asian">Unicode Asian</option>
 									<option value="arabic" class="localize font_arabic">Arabic</option>
-									<option value="custom">Custom Font - none</option> <!-- TODO : localize -->
+									<option value="custom" class="localize font_custom">Custom Font - none</option>
 								</select>
 								<div id="ascii_small_description" style="font-size: 80%">
 									<span class="localize font_ascii_small_description">Small font limited to ASCII, which includes English characters and some symbols.</span>
@@ -1183,14 +1181,14 @@
 								<div id="custom_description" style="font-size: 80%">
 									<span class="localize font_custom_description">Upload your own custom font in the ".bitsyfont" format!</span>
 									<br/>
-									<label for="importFontPicker" class="filePickerLabel" title="import font from bitsyfont file on your computer">
+									<label for="importFontPicker" class="filePickerLabel" data-localize-title="import_font_title">
 										<span class="bitsy_icon">upload</span>
 										<span class="localize upload_font">upload font</span>
 									</label>
-									<input title="import font from bitsyfont file on your computer" type="file" accept=".bitsyfont" id="importFontPicker" style="display:none;" onchange="importFontFromFile(event);"/>
+									<input data-localize-title="import_font_title" type="file" accept=".bitsyfont" id="importFontPicker" style="display:none;" onchange="importFontFromFile(event);"/>
 								</div>
 								<div style="margin-top:3px;">
-									<button title="download font file" class="color0" onclick="exportFont();">
+									<button data-localize-title="download_font_title" class="color0" onclick="exportFont();">
 										<span class="bitsy_icon">download</span>
 										<span class="localize download_font">download font</span>
 									</button>
@@ -1207,10 +1205,10 @@
 								</div>
 								<div style="margin-top: 5px;">
 									<span class="bitsy_icon">text_edit</span>
-									<span class="localize text_mode" title="textbox graphics mode">text mode</span>:
-									<select id="textModeSelect" title="select resolution of textbox pixels" onchange="onChangeTextMode(event);">
-										<option value="TXT_HIREZ" title="2x pixel resolution">default</option>
-										<option value="TXT_LOREZ" title="1x pixel resolution">chunky</option>
+									<span class="localize text_mode" data-localize-title="text_mode_hint">text mode</span>:
+									<select id="textModeSelect" data-localize-title="text_mode_select_title" onchange="onChangeTextMode(event);">
+										<option value="TXT_HIREZ" data-localize-title="text_hirez_description" class="localize text_mode_default">default</option>
+										<option value="TXT_LOREZ" data-localize-title="text_lorez_description" class="localize text_mode_chunky">chunky</option>
 									</select>
 								</div>
 							</div>
@@ -1220,33 +1218,33 @@
 							<div class="controlBox">
 								<span class="localize option_page_color">html page color:</span>
 								<br/>
-								<input title="pick background color for exported html page" type="color" value="#ffffff" id="pageColor" onchange="on_change_color_page();" autocomplete="off">
+								<input data-localize-title="page_color_title" type="color" value="#ffffff" id="pageColor" onchange="on_change_color_page();" autocomplete="off">
 							</div>
 							<div class="controlBox">
 								<form>
 									<span class="localize option_window_size">game window size:</span>
 									<br/>
 									<input type="radio" name="export size" value="full" onclick="chooseExportSizeFull();" id="exportSizeOptionFull" checked>
-									<label title="game window resizes to fill page (mobile friendly)" for="exportSizeOptionFull" class="left">
+									<label data-localize-title="export_size_full_title" for="exportSizeOptionFull" class="left">
 										<span class="bitsy_icon">pagesize_full</span>
 										<span class="localize option_full_size">full page</span>
 									</label>
 
 									<input type="radio" name="export size" value="fixed" onclick="chooseExportSizeFixed();" id="exportSizeOptionFixed">
-									<label title="game window stays a fixed size" for="exportSizeOptionFixed" class="right">
+									<label data-localize-title="export_size_fixed_title" for="exportSizeOptionFixed" class="right">
 										<span class="bitsy_icon">pagesize_fixed</span>
 										<span class="localize option_fixed_size">fixed size</span>
 									</label>
 
 									<div style="margin-top:5px;">
 										<span class="controlBox" id="exportSizeFixedInputSpan" style="display:none;">
-											<input type="number" min="0" value="512" style="width:60px;" id="exportSizeFixedInput"> px
+											<input type="number" min="0" value="512" style="width:60px;" id="exportSizeFixedInput"> <span class="localize px_unit">px</span>
 										</span>
 									</div>
 								</form>
 							</div>
 
-	                        <div class="controlBox" title="the size that new drawings will have by default">
+	                        <div class="controlBox" data-localize-title="default_drawing_size_title">
 	                            <form>
 	                                <span class="localize default_drawing_size">default size for new drawings</span>:
 	                                <br />

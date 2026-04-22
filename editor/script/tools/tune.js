@@ -2,6 +2,7 @@ function makeTuneTool() {
 	return makeToolCard("tune", function(tool) {
 		tool.id = "tune";
 		tool.name = "tune";
+		tool.nameKey = "tune_tool_name";
 		tool.icon = "tune";
 		tool.size = "m";
 		tool.data = "TUNE"; // todo : what's the right naming convention?
@@ -327,8 +328,8 @@ function makeTuneTool() {
 			tool.menu.push({
 				control: "toggle",
 				icon: isMusicPlaying ? "stop" : "play",
-				text: isMusicPlaying ? "stop" : "play",
-				description: "play tune from selected bar",
+				text: isMusicPlaying ? localization.GetStringOrFallback("tune_stop", "stop") : localization.GetStringOrFallback("tune_play", "play"),
+				description: localization.GetStringOrFallback("tune_play_description", "play tune from selected bar"),
 				id: "tunePlayToggle",
 				checked : isMusicPlaying,
 				onclick : function(e) {
@@ -345,8 +346,8 @@ function makeTuneTool() {
 			tool.menu.push({
 				control: "toggle",
 				icon : "loop",
-				text : "loop",
-				description : "repeat current bar",
+				text : localization.GetStringOrFallback("tune_loop", "loop"),
+				description : localization.GetStringOrFallback("tune_loop_description", "repeat current bar"),
 				id : "tuneLoopToggle", // hacky
 				checked : isBarLooping,
 				onclick : function(e) {
@@ -361,14 +362,14 @@ function makeTuneTool() {
 			tool.menu.push({
 				control: "label",
 				icon: isMelody ? "instrument_melody" : "instrument_harmony",
-				text: "bar " + (curBarIndex + 1) + " / " + tune[curTuneId].melody.length,
-				description: "selected bar: " + (curBarIndex + 1) + " (" + (isMelody ? "melody" : "harmony") + ")"
+				text: localization.GetStringOrFallback("tune_bar", "bar") + " " + (curBarIndex + 1) + " / " + tune[curTuneId].melody.length,
+				description: localization.GetStringOrFallback("tune_selected_bar", "selected bar") + ": " + (curBarIndex + 1) + " (" + localization.GetStringOrFallback(isMelody ? "tune_melody" : "tune_harmony", isMelody ? "melody" : "harmony") + ")"
 			});
 
 			tool.menu.push({
 				control: "button",
 				icon: "move_left",
-				description: "move selected bar left",
+				description: localization.GetStringOrFallback("tune_bar_move_left", "move selected bar left"),
 				enabled: curBarIndex > 0,
 				onclick: function() {
 					// swap this bar with the one to the left
@@ -396,7 +397,7 @@ function makeTuneTool() {
 			tool.menu.push({
 				control: "button",
 				icon: "move_right",
-				description: "move selected bar right",
+				description: localization.GetStringOrFallback("tune_bar_move_right", "move selected bar right"),
 				enabled: curBarIndex < (tune[curTuneId].melody.length - 1),
 				onclick: function() {
 					// swap this bar with the one to the right
@@ -424,7 +425,7 @@ function makeTuneTool() {
 			tool.menu.push({
 				control: "button",
 				icon: "add",
-				description: "add empty bar to end of tune",
+				description: localization.GetStringOrFallback("tune_bar_add", "add empty bar to end of tune"),
 				enabled: (tune[curTuneId].melody.length < maxTuneLength),
 				onclick: function() {
 					// add new bar
@@ -446,7 +447,7 @@ function makeTuneTool() {
 			tool.menu.push({
 				control: "button",
 				icon: "copy",
-				description: "make copy of selected bar and add it to the to end of tune",
+				description: localization.GetStringOrFallback("tune_bar_copy", "make copy of selected bar and add it to the end of tune"),
 				enabled: (tune[curTuneId].melody.length < maxTuneLength),
 				onclick: function() {
 					// copy current bar
@@ -472,7 +473,7 @@ function makeTuneTool() {
 			tool.menu.push({
 				control: "button",
 				icon: "delete", // todo : better icon?
-				description: "remove selected bar from tune",
+				description: localization.GetStringOrFallback("tune_bar_remove", "remove selected bar from tune"),
 				onclick: function() {
 					// remove current bar
 					tune[curTuneId].melody.splice(curBarIndex, 1);
@@ -504,9 +505,9 @@ function makeTuneTool() {
 				name: "tuneMenu",
 				value: curMenu,
 				options: [
-					{ icon: "edit", text: "compose", description: "note editing tools", value: Menu.COMPOSE },
-					{ icon: "instrument_melody", text: "instrument", description: "instrument settings", value: Menu.INSTRUMENT },
-					{ icon: "tune", text: "style", description: "tune settings", value: Menu.STYLE },
+					{ icon: "edit", text: localization.GetStringOrFallback("tune_compose", "compose"), description: localization.GetStringOrFallback("tune_compose_description", "note editing tools"), value: Menu.COMPOSE },
+					{ icon: "instrument_melody", text: localization.GetStringOrFallback("tune_instrument", "instrument"), description: localization.GetStringOrFallback("tune_instrument_description", "instrument settings"), value: Menu.INSTRUMENT },
+					{ icon: "tune", text: localization.GetStringOrFallback("tune_style", "style"), description: localization.GetStringOrFallback("tune_style_description", "tune settings"), value: Menu.STYLE },
 				],
 				onchange: function(e) {
 					curMenu = parseInt(e.target.value);
@@ -524,7 +525,7 @@ function makeTuneTool() {
 				tool.menu.push({
 					control: "label",
 					icon : "edit",
-					description : "note entry tool",
+					description : localization.GetStringOrFallback("tune_note_entry_description", "note entry tool"),
 				});
 
 				tool.menu.push({
@@ -532,8 +533,8 @@ function makeTuneTool() {
 					name: "tuneNoteEntry",
 					value: curNoteMode,
 					options: [
-						{ icon: "note", text: "note", description : "click & drag to draw notes", value: NOTE_TYPE.NOTE, },
-						{ icon: "blip", text: "blip", description : "click to insert selected blip as a note", value: NOTE_TYPE.BLIP, },
+						{ icon: "note", text: localization.GetStringOrFallback("tune_note", "note"), description : localization.GetStringOrFallback("tune_note_description", "click & drag to draw notes"), value: NOTE_TYPE.NOTE, },
+						{ icon: "blip", text: localization.GetStringOrFallback("tune_blip", "blip"), description : localization.GetStringOrFallback("tune_blip_description", "click to insert selected blip as a note"), value: NOTE_TYPE.BLIP, },
 					],
 					onchange: function(e) {
 						curNoteMode = parseInt(e.target.value);
@@ -549,7 +550,7 @@ function makeTuneTool() {
 					tool.menu.push({
 						control: "label",
 						icon: arpeggioPatternIcons[tune[curTuneId].arpeggioPattern],
-						description: "harmony strum pattern (arpeggios)"
+						description: localization.GetStringOrFallback("tune_strum_description", "harmony strum pattern (arpeggios)")
 					});
 
 					tool.menu.push({
@@ -557,11 +558,11 @@ function makeTuneTool() {
 						name: "arpModeSelect",
 						value: tune[curTuneId].arpeggioPattern,
 						options: [
-							{ text: "strum off", value: ArpeggioPattern.OFF, },
-							{ text: "strum chord (up)", value: ArpeggioPattern.UP, },
-							{ text: "strum chord (down)", value: ArpeggioPattern.DWN, },
-							{ text: "strum interval (small)", value: ArpeggioPattern.INT5, },
-							{ text: "strum interval (big)", value: ArpeggioPattern.INT8 }
+							{ text: localization.GetStringOrFallback("tune_strum_off", "strum off"), value: ArpeggioPattern.OFF, },
+							{ text: localization.GetStringOrFallback("tune_strum_chord_up", "strum chord (up)"), value: ArpeggioPattern.UP, },
+							{ text: localization.GetStringOrFallback("tune_strum_chord_down", "strum chord (down)"), value: ArpeggioPattern.DWN, },
+							{ text: localization.GetStringOrFallback("tune_strum_interval_small", "strum interval (small)"), value: ArpeggioPattern.INT5, },
+							{ text: localization.GetStringOrFallback("tune_strum_interval_big", "strum interval (big)"), value: ArpeggioPattern.INT8 }
 						],
 						onchange: function(e) {
 							tune[curTuneId].arpeggioPattern = parseInt(e.target.value);
@@ -672,8 +673,8 @@ function makeTuneTool() {
 				tool.menu.push({
 					control: "label",
 					icon: tempoIcon,
-					text: "speed",
-					description: "tune speed (tempo)"
+					text: localization.GetStringOrFallback("tune_speed", "speed"),
+					description: localization.GetStringOrFallback("tune_speed_description", "tune speed (tempo)")
 				});
 
 				tool.menu.push({
@@ -681,10 +682,10 @@ function makeTuneTool() {
 					name: "tuneTempo",
 					value: tune[curTuneId].tempo,
 					options: [
-						{ text: "slow", description: "60bpm (adagio)", value: Tempo.SLW, },
-						{ text: "medium", description: "80bpm (andante)", value: Tempo.MED, },
-						{ text: "fast", description: "120bpm (moderato)", value: Tempo.FST, },
-						{ text: "turbo", description: "160bpm (allegro)", value: Tempo.XFST, },
+						{ text: localization.GetStringOrFallback("tune_tempo_slow", "slow"), description: "60bpm (adagio)", value: Tempo.SLW, },
+						{ text: localization.GetStringOrFallback("tune_tempo_medium", "medium"), description: "80bpm (andante)", value: Tempo.MED, },
+						{ text: localization.GetStringOrFallback("tune_tempo_fast", "fast"), description: "120bpm (moderato)", value: Tempo.FST, },
+						{ text: localization.GetStringOrFallback("tune_tempo_turbo", "turbo"), description: "160bpm (allegro)", value: Tempo.XFST, },
 					],
 					onchange: function(e) {
 						tune[curTuneId].tempo = parseInt(e.target.value);
@@ -707,8 +708,8 @@ function makeTuneTool() {
 					tool.menu.push({
 						control: "label",
 						icon: isMajorKey ? "key_majp" : "key_minp",
-						text: "mood",
-						description: "tune mood (transpose between major & minor key)"
+						text: localization.GetStringOrFallback("tune_mood", "mood"),
+						description: localization.GetStringOrFallback("tune_mood_description", "tune mood (transpose between major & minor key)")
 					});
 
 					tool.menu.push({
@@ -716,8 +717,8 @@ function makeTuneTool() {
 						name: "tuneKeyTranspose",
 						value: isMajorKey,
 						options: [
-							{ text: "cheery", description: "major key", value: true },
-							{ text: "gloomy", description: "minor key", value: false },
+							{ text: localization.GetStringOrFallback("tune_mood_cheery", "cheery"), description: localization.GetStringOrFallback("tune_mood_major", "major key"), value: true },
+							{ text: localization.GetStringOrFallback("tune_mood_gloomy", "gloomy"), description: localization.GetStringOrFallback("tune_mood_minor", "minor key"), value: false },
 						],
 						onchange: function(e) {
 							if (e.target.value === "true") {
@@ -747,8 +748,8 @@ function makeTuneTool() {
 				tool.menu.push({
 					control: "label",
 					icon: "settings",
-					text: "key",
-					description: "key: " + keyNames[curKeyId] + " (" + keyDescriptions[curKeyId] + ")"
+					text: localization.GetStringOrFallback("tune_key", "key"),
+					description: localization.GetStringOrFallback("tune_key", "key") + ": " + keyNames[curKeyId] + " (" + keyDescriptions[curKeyId] + ")"
 				});
 
 				function makeKeyOption(key) {
@@ -1622,7 +1623,7 @@ function makeTuneTool() {
 
 		tool.delete = function(id) {
 			if (sortedBase36IdList(tune).length <= 1) {
-				alert("you can't delete your last tune!");
+				alert(localization.GetStringOrFallback("cant_delete_last_tune", "you can't delete your last tune!"));
 				return;
 			}
 

@@ -648,12 +648,12 @@ function PaintTool(canvas, menuElement) {
 	// TODO - may need to extract this for different tools beyond the paint tool (put it in core.js?)
 	this.deleteDrawing = function() {
 		var shouldDelete = true;
-		shouldDelete = confirm("Are you sure you want to delete this drawing?");
+		shouldDelete = confirm(localization.GetStringOrFallback("confirm_delete_drawing", "Are you sure you want to delete this drawing?"));
 
 		if (shouldDelete) {
 			if (drawing.type === TileType.Tile) {
 				if (Object.keys( tile ).length <= 1) {
-					alert("You can't delete your last tile!"); // todo : localize
+					alert(localization.GetStringOrFallback("cant_delete_last_tile", "You can't delete your last tile!"));
 					return;
 				}
 
@@ -666,7 +666,7 @@ function PaintTool(canvas, menuElement) {
 			}
 			else if (drawing.type === TileType.Avatar || drawing.type === TileType.Sprite) {
 				if (Object.keys(sprite).length <= 2) {
-					alert("You can't delete your last sprite!"); // todo : localize
+					alert(localization.GetStringOrFallback("cant_delete_last_sprite", "You can't delete your last sprite!"));
 					return;
 				}
 
@@ -682,7 +682,7 @@ function PaintTool(canvas, menuElement) {
 			}
 			else if (drawing.type === TileType.Item) {
 				if (Object.keys(item).length <= 1) {
-					alert("You can't delete your last item!"); // todo : localize
+					alert(localization.GetStringOrFallback("cant_delete_last_item", "You can't delete your last item!"));
 					return;
 				}
 

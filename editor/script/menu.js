@@ -26,7 +26,13 @@ function createLabelElement(options) {
 		label.appendChild(createIconElement(options.icon));
 	}
 
-	if (options.text) {
+	if (options.textKey) {
+		var textSpan = document.createElement("span");
+		textSpan.classList.add("localize");
+		textSpan.classList.add(options.textKey);
+		textSpan.innerText = options.text || options.textKey;
+		label.appendChild(textSpan);
+	} else if (options.text) {
 		var textSpan = document.createElement("span");
 		textSpan.innerText = options.text;
 		label.appendChild(textSpan);
@@ -153,7 +159,13 @@ function createButtonElement(options) {
 		button.appendChild(createIconElement(options.icon));
 	}
 
-	if (options.text) {
+	if (options.textKey) {
+		var textSpan = document.createElement("span");
+		textSpan.classList.add("localize");
+		textSpan.classList.add(options.textKey);
+		textSpan.innerText = options.text || options.textKey;
+		button.appendChild(textSpan);
+	} else if (options.text) {
 		var textSpan = document.createElement("span");
 		textSpan.innerText = options.text;
 		button.appendChild(textSpan);
@@ -198,6 +210,7 @@ function createToggleElement(options) {
 	var toggleLabel = createLabelElement({
 		icon: options.icon,
 		text: options.text,
+		textKey: options.textKey,
 		for: checkboxInput.id,
 		// style: "button",
 		description: options.description,

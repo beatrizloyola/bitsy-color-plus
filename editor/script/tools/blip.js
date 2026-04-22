@@ -30,6 +30,7 @@ function makeBlipTool() {
 	return makeToolCard("blip", function(tool) {
 		tool.id = "blip";
 		tool.name = "blip-o-matic";
+		tool.nameKey = "blip_tool_name";
 		tool.icon = "blip";
 		tool.size = "s";
 		tool.data = "BLIP";
@@ -375,8 +376,8 @@ function makeBlipTool() {
 			tool.menu.push({
 				control: "button",
 				icon: "play",
-				text: "play",
-				description: "play blip",
+				text: localization.GetStringOrFallback("tune_play", "play"),
+				description: localization.GetStringOrFallback("blip_play_description", "play blip"),
 				onclick : function(e) {
 					tool.soundPlayer.playBlip(curBlip);
 				},
@@ -387,13 +388,13 @@ function makeBlipTool() {
 			tool.menu.push({
 				control: "label",
 				icon: "tune",
-				text: "pitch",
-				description: "adjust the pitch"
+				text: localization.GetStringOrFallback("blip_pitch", "pitch"),
+				description: localization.GetStringOrFallback("blip_pitch_description", "adjust the pitch")
 			});
 			tool.menu.push({
 				control: "button",
 				icon: "arrow_down",
-				description: "lower pitch",
+				description: localization.GetStringOrFallback("blip_pitch_lower", "lower pitch"),
 				enabled: !(isMinPitch(curBlip.pitchA) || isMinPitch(curBlip.pitchB) || isMinPitch(curBlip.pitchC)),
 				onclick : function() {
 					curBlip.pitchA = adjustPitch(curBlip.pitchA, -1);
@@ -407,7 +408,7 @@ function makeBlipTool() {
 			tool.menu.push({
 				control: "button",
 				icon: "arrow_up",
-				description: "higher pitch",
+				description: localization.GetStringOrFallback("blip_pitch_higher", "higher pitch"),
 				enabled: !(isMaxPitch(curBlip.pitchA) || isMaxPitch(curBlip.pitchB) || isMaxPitch(curBlip.pitchC)),
 				onclick : function() {
 					curBlip.pitchA = adjustPitch(curBlip.pitchA, 1);
@@ -424,13 +425,13 @@ function makeBlipTool() {
 			tool.menu.push({
 				control: "label",
 				icon: "play",
-				text: "length",
-				description: "adjust the total play time (duration)"
+				text: localization.GetStringOrFallback("blip_length", "length"),
+				description: localization.GetStringOrFallback("blip_length_description", "adjust the total play time (duration)")
 			});
 			tool.menu.push({
 				control: "button",
 				icon: "sub",
-				description: "shorter",
+				description: localization.GetStringOrFallback("blip_length_shorter", "shorter"),
 				enabled: curBlip.envelope.length > 32,
 				onclick: function() {
 					curBlip.envelope.length = clampBlipParam(curBlip.envelope.length - 32);
@@ -442,7 +443,7 @@ function makeBlipTool() {
 			tool.menu.push({
 				control: "button",
 				icon: "add",
-				description: "longer",
+				description: localization.GetStringOrFallback("blip_length_longer", "longer"),
 				enabled: curBlip.envelope.length < 480,
 				onclick: function() {
 					curBlip.envelope.length = clampBlipParam(curBlip.envelope.length + 32);
@@ -457,13 +458,13 @@ function makeBlipTool() {
 			tool.menu.push({
 				control: "label",
 				icon: "tempo_fast",
-				text: "speed",
-				description: "adjust the time between each pitch change"
+				text: localization.GetStringOrFallback("blip_speed", "speed"),
+				description: localization.GetStringOrFallback("blip_speed_description", "adjust the time between each pitch change")
 			});
 			tool.menu.push({
 				control: "button",
 				icon: "sub",
-				description: "slower",
+				description: localization.GetStringOrFallback("blip_speed_slower", "slower"),
 				enabled: curBlip.beat.time < 480,
 				onclick: function() {
 					curBlip.beat.time = clampBlipParam(curBlip.beat.time + 32);
@@ -475,7 +476,7 @@ function makeBlipTool() {
 			tool.menu.push({
 				control: "button",
 				icon: "add",
-				description: "faster",
+				description: localization.GetStringOrFallback("blip_speed_faster", "faster"),
 				enabled: curBlip.beat.time > 32,
 				onclick: function() {
 					curBlip.beat.time = clampBlipParam(curBlip.beat.time - 32);
@@ -491,8 +492,8 @@ function makeBlipTool() {
 			tool.menu.push({
 				control: "label",
 				icon: "blip",
-				text: "generator",
-				description: "type of sound to generate when adding blips (" + blipNames[curGenerator] + ": " + blipDescriptions[curGenerator] + ")"
+				text: localization.GetStringOrFallback("blip_generator", "generator"),
+				description: localization.GetStringOrFallback("blip_generator_description", "type of sound to generate when adding blips") + " (" + blipNames[curGenerator] + ": " + blipDescriptions[curGenerator] + ")"
 			});
 
 			// todo : I don't need to generate these each time do I?
@@ -503,7 +504,7 @@ function makeBlipTool() {
 
 			tool.menu.push({
 				control: "select",
-				description: "select sound effect category",
+				description: localization.GetStringOrFallback("blip_generator_select_description", "select sound effect category"),
 				name: "blipRandomType",
 				value: curGenerator,
 				options: blipTypeOptions,
@@ -549,7 +550,7 @@ function makeBlipTool() {
 
 		tool.delete = function(id) {
 			if (sortedBase36IdList(blip).length <= 1) {
-				alert("you can't delete your last blip!");
+				alert(localization.GetStringOrFallback("cant_delete_last_blip", "you can't delete your last blip!"));
 				return;
 			}
 
