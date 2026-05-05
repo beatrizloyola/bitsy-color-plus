@@ -1,16 +1,31 @@
-## Engine and Editor Development
+## Programming
 
-- Adam Le Doux - Project Lead
+- Adam Le Doux - Maintainer
 - @alts - Contributor
 - @ayolland - Contributor
 - @david-c14 - Contributor
 - Elkie - Contributor
 - equa (@equaa) - Contributor
+- @frojo - Contributor
 - max - Contributor
+- @Miguel-hrvs - Contributor
+- @nashalexander - Contributor
+- @pancelor - Contributor
+- Pirijuamps - Contributor
 - @ragzouken - Contributor
+- @ribozone - Contributor
 - Samuel Fine - Contributor
 - Sean S. LeBlanc - Contributor
-- @zachThePerson - Contributor
+- Zach Hixson - Contributor
+
+## Documentation
+
+- Adam Le Doux
+- Claire Morwood
+- @liximi
+- Sean S. Le Blanc
+- @vaasut
+- @ZeppelinGames
 
 ## Icons
 

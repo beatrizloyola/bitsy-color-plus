@@ -1,3 +1,19 @@
+## 8.15
+
+- localization: additions/updates to Spanish translation (José Muñoz)
+
+## 8.14
+
+- docs: added Chinese translation for some pages (@liximi)
+- docs: fixed links on homepage (@ZeppelinGames)
+- fix: sharper pixel art in exported games (@ribozone)
+- localization: additions to Chinese translation (@iamflea-livingbugs)
+- localization: additions to Polish translation (@plyr0)
+
+## 8.13
+
+- fix: tiles in room tool getting scrambled when starting and stopping game (@Miguel-hrvs)
+
 ## 8.2
 
 - updated ascii_small.bitsyfont to use correct UTF8 codes
